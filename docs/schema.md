@@ -15,14 +15,14 @@ column name       | data type    | details
 ------------------|--------------|--------------------------
 id                | integer      | not null, primary key
 name              | string       | not null, unique
-purpose           | string       |
+description       | string       |
 private           | boolean      | default: false
 
 ## messages
 column name       | data type    | details
 ------------------|--------------|--------------------------
 id                | integer      | not null, primary key
-user_id           | integer      | not null, foreign key (references users), indexed
+author            | integer      | not null, foreign key (references users), indexed
 channel_id        | integer      | not null, foreign key (references channels), indexed
 body              | text         | not null
 
