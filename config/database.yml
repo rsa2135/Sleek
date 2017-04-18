@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: sleek_production
-  username: sleek
+  username: ronariav
   password: <%= ENV['SLEEK_DATABASE_PASSWORD'] %>

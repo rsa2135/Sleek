@@ -9,7 +9,6 @@
     current_channel: {
       id: 1
     },
-    private: false
   },
 
   // Ability to display errors in form creation
