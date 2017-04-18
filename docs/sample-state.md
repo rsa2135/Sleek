@@ -7,9 +7,7 @@
     email: "Valentino@Rossi.com",
     image_url:
     current_channel: {
-      id: 1,
-      name: "MotoGP",
-      description: "All things MotoGP",
+      id: 1
     },
     private: false
   },
@@ -32,23 +30,20 @@
 
   // Messages in current channel
   messages: [
-    {
-      id: 1,
-      author: {
-        id: 4,
-        username: "Mika Häkkinen"
-        body: "MotoGP Sucks!"
-        email: "Mikahäkkinen@gmail.com",
-        image_url:
-      },
-      id: 2,
-      author: {
-        id: 5,
-        username: "Casey Stoner"
-        body: "Valentino, remember how you almost killed me?"
-        email: "Caseystoner@random.com.au",
-        image_url:
-      }
+    4: {
+      id: 4,
+      username: "Mika Häkkinen"
+      body: "MotoGP Sucks!"
+      email: "Mikahäkkinen@gmail.com",
+      image_url:
+    },
+
+    5: {
+      id: 5,
+      username: "Casey Stoner"
+      body: "Valentino, remember how you almost killed me?"
+      email: "Caseystoner@random.com.au",
+      image_url:
     }
   ]
 

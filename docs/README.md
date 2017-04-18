@@ -33,20 +33,31 @@
 
 ### Phase 1: Backend setup and Front End User Authentication (2 day)
 
-**Objective:** Functioning rails project with front-end Authentication.
+  + **Day 1 Objective:** Backend setup (users table, model, API endpoints). Frontend redux cycle
 
-### Phase 2: Live Chat Model, API, and components (3 days)
+  + **Day 2 Objective:** Frontend auth components for signup and login pages. CSS styling
 
-**Objective:** Messages can be created and edited. Messages will be dispersed immediately to every participant of the channel.
+### Phase 2: Live Chat Model, API, and components (2 days)
+
+ + **Day 1 Objective:** Static backend setup (messages table, model, API endpoints), Frontend setup (redux + components)
+
+ + **Day 2 Objective:** Finish components, CSS styling, fixing state/database. Convert static backend to live chat. Messages can be created and edited. Messages will be dispersed immediately to every participant of the channel.
 
 ### Phase 3: Channels (3 days)
 
-**Objective:** Channels can be created, edited and destroyed through the API. Other users can be invited to a channel.
+ + **Day 1 Objective:** Backend setup (channels table, subscription table, models, API endpoints). Frontend Setup (redux + components)
 
-### Phase 4: Direct Messages (1 day)
+ + **Day 2 Objective:** Finish main components (channels and DM's), CSS styling
 
-**Objective:** 2 to 8 person channels, can be created and destroyed through the API.
+ + **Day 3 Objective:** Add all channels and all users components, CSS Styling. Channels can be created, edited and destroyed through the API. Users can join channels, create direct messages, and view all channels / all users
 
+### Phase 4: Navbar and Sidebar (2.5 day)
+
+ + **Day 1 Objective:** Finish / fix any database + state issues. Frontend Setup (redux + components)
+
+ + **Day 2 Objective:** Finish components, CSS styling
+
+ + **Day 3 (0.5 day) Objective:** Final touches
 
 ### Bonus Features (TBD)
 - [ ] Search Messages

@@ -7,6 +7,7 @@ id                | integer      | not null, primary key
 username          | string       | not null, indexed, unique
 email             | string       | not null, indexed, unique
 image_url         | string       |
+current_channel   | string       | not null, indexed
 password_digest   | string       | not null
 session_token     | string       | not null, indexed, unique
 
@@ -17,6 +18,7 @@ id                | integer      | not null, primary key
 name              | string       | not null, unique
 description       | string       |
 private           | boolean      | default: false
+direct_message?   | boolean      | default: false
 
 ## messages
 column name       | data type    | details
