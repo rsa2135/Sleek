@@ -38,7 +38,7 @@ group :development, :test do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'byebug', platform: :mri
+  gem 'byebug'
   gem 'pry-rails'
   gem 'validates_email_format_of'
 end
