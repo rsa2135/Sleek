@@ -24,3 +24,8 @@ npm-debug.log
 
 # ignore macOS related files
 .DS_Store
+
+# ignore node-modules
+node-modules/
+/app/assets/javascript/bundle.js
+/app/assets/javascript/bundle.js.map
