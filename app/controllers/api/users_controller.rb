@@ -1,12 +1,13 @@
 class Api::UsersController < ApplicationController
-  before_action :require_logged_in
 
   def index
+    debugger
     @users = User.all
     render "api/users/index"
   end
 
   def show
+    debugger
     @user = User.find(params[:id])
     if @user
       render "api/users/show"
@@ -35,6 +36,7 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
+    debugger
     @user = user.find(params[:id])
     if @user
       @user.destroy

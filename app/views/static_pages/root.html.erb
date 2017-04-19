@@ -1,10 +1,10 @@
 <script>
   <% if logged_in? %>
-    window.currentUSer = <%= render(
+    window.currentUser = <%= render(
       'api/users/user.json.jbuilder',
       user: current_user
     ).html_safe %>
   <% end %>
 </script>
 
-<main id="root">This is it</main>
+<main id='root'>Frontend Broke!</main>
