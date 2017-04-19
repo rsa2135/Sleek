@@ -1,0 +1,113 @@
+// * {
+//   border: 1px solid red !important;
+// }
+
+body {
+  background-color: $snow;
+
+}
+
+.appContainer {
+
+}
+
+.login-form-container {
+  margin-top: 100px;
+}
+
+.login-form-container ul {
+  width: 635px;
+  border: 1px solid $border-light-grey;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: $white;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-left: 5px solid $error-red;
+  font-weight: 300;
+  font-family: $lato
+}
+
+.login-form-container ul li {
+  padding: 3px;
+  border-bottom: 1px solid $border-light-grey;
+}
+
+.login-form-container ul li:last-child {
+  padding: 3px;
+  border-bottom: 0px;
+}
+
+.login-form {
+  width: 635px;
+  padding: 16px;
+  border: 1px solid $border-light-grey;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: $white;
+
+}
+
+.login-form-box h1 {
+  text-align: center;
+  font-size: 32px;
+  color: $text-grey;
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-family: $lato;
+}
+
+.login-form-box p {
+  font-family: $lato;
+  text-align: center;
+  color: #555459;
+  margin-bottom: 16px;
+}
+
+.login-form-box p strong {
+  font-weight: bold;
+  color: #555459;
+}
+
+.login-form-box input {
+  margin: 0 auto;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: block;
+  width: 60%;
+  border: 1px solid $border-light-grey;
+  border-radius: 4px;
+  color: $placeholder-text-grey;
+  font-size: 1.25rem;
+}
+
+.login-form-box input.submit {
+  display: block;
+  margin-bottom: 16px;
+  width: 60%;
+  text-align: center;
+  background-color: $slack-green;
+  font-size: 20px;
+  font-weight: 700;
+  border: 1px solid $slack-green;
+  color: white;
+  border-radius: 4px;
+  line-height: 1.2rem;
+}
+
+.login-form-box p.redirect {
+  font-family: $lato;
+  font-size: 12px;
+  text-align: center;
+  color: #555459;
+}
+
+.userStatus {
+  text-decoration: underline;
+  color: $slack-blue;
+}
+
+li span {
+  margin-right: 8px;
+  color: $error-red;
+}

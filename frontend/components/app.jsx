@@ -1,8 +1,7 @@
 import React from 'react';
 
 const App = ({ children }) => (
-  <div>
-    <h1>App working</h1>
+  <div className="appContainer">
     {children}
   </div>
 );

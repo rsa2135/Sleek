@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import FontAwesome from 'react-fontawesome'
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -49,7 +50,7 @@ class SessionForm extends React.Component {
 						if (error !== "Password digest can't be blank") {
 							return (
 								<li key={`error-${i}`}>
-									{error}
+									<FontAwesome name='exclamation-triangle' />{error}
 								</li>
 							);
 						}
@@ -66,17 +67,31 @@ class SessionForm extends React.Component {
 		let welcomeMessage;
 		let redirectMessage;
 		let redirectLink;
+		let submitValue;
 
 		if (this.props.formType === "login") {
 			welcomeTitle = "Sign in to Sleek";
-			welcomeMessage = "Enter your email address and password.";
+			welcomeMessage = <p className="welcomeMessage">
+												Enter your
+												<strong> email address </strong>
+												and
+												<strong> password. </strong>
+											</p>;
 			redirectMessage = "Already have an account?";
-			redirectLink = <Link to="/signup">Sign up</Link>;
+			redirectLink = <Link to="/signup" className="userStatus">Sign up</Link>;
+			submitValue = "Sign in";
 		} else {
 			welcomeTitle = "Join Sleek";
-			welcomeMessage = "Enter your email address and password.";
+			welcomeMessage = <p className="welcomeMessage">
+												Enter your
+												<strong> email address, </strong>
+												choose a
+												<strong> password </strong>
+												and
+												<strong> username.</strong>
+											</p>;
 			redirectMessage = "Already have an account?";
-			redirectLink = <Link to="/login">Sign in</Link>;
+			redirectLink = <Link to="/login" className="userStatus">Sign in</Link>;
 			username = (
 				<input
 					type="text"
@@ -85,35 +100,33 @@ class SessionForm extends React.Component {
 					onChange={this.update("username")}
 					className="login-input" />
 			);
+			submitValue = "Sign up";
 		}
 
 	return(
 		<div className="login-form">
 			<form onSubmit={this.handleSubmit} className="login-form-box">
-				{welcomeTitle}
-				<br/>
+				<h1 className="welcomeTitle">{welcomeTitle}</h1>
 				{welcomeMessage}
-				<div className="login-form">
 
-					{username}
+				{username}
 
-					<input
-						type="text"
-						placeholder="email goes here"
-						value={this.state.email}
-						onChange={this.update("email")}
-						className="login-input" />
+				<input
+					type="text"
+					placeholder="email goes here"
+					value={this.state.email}
+					onChange={this.update("email")}
+					className="login-input" />
 
-					<input
-						placeholder="password"
-						type="password"
-						value={this.state.password}
-						onChange={this.update("password")}
-						className="login-input" />
+				<input
+					placeholder="password"
+					type="password"
+					value={this.state.password}
+					onChange={this.update("password")}
+					className="login-input" />
 
-					<input type="submit" value="Submit" />
-				</div>
-				<p>{redirectMessage} {redirectLink}</p>
+				<input type="submit" value={submitValue} className="submit"/>
+				<p className="redirect">{redirectMessage} {redirectLink}</p>
 			</form>
 		</div>
 		);
@@ -122,7 +135,7 @@ class SessionForm extends React.Component {
 	render() {
 		return (
 			<div className="login-form-container">
-				{this.renderErrors()}
+				{this.props.errors.length === 0 ? "" : this.renderErrors()}
 				{this.renderForm()}
 			</div>
 		);
