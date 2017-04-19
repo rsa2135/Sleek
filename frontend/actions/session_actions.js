@@ -1,10 +1,9 @@
 import * as SessionApiUtil from '../util/api_util';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-export const RECEIVE_ERRORS = "RECEIVE_CURRENT_USER";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receiveCurrentUser = (currentUser) => {
-  debugger
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser
@@ -39,7 +38,6 @@ export const logout = () => {
 };
 
 export const signup = (user) => {
-  debugger
   return (dispatch) => {
     return SessionApiUtil.signup(user)
       .then(

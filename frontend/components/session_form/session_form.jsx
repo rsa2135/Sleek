@@ -4,8 +4,14 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
+		this.state = {
+			username: "",
+			email: "",
+			password: ""
+		};
+
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.update = this.update.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -18,6 +24,11 @@ class SessionForm extends React.Component {
 		}
 	}
 
+	componentWillReceiveProps(newProps) {
+    if (newProps.formType !== this.props.formType) {
+      this.props.clearErrors();
+    }
+	}
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
@@ -30,58 +41,92 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
 	}
 
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
-	}
-
 	renderErrors() {
 		return(
 			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
+				{
+					this.props.errors.map((error, i) => {
+						if (error !== "Password digest can't be blank") {
+							return (
+								<li key={`error-${i}`}>
+									{error}
+								</li>
+							);
+						}
+					}
+				)
+			}
 			</ul>
+		);
+	}
+
+	renderForm() {
+		let username;
+		let welcomeTitle;
+		let welcomeMessage;
+		let redirectMessage;
+		let redirectLink;
+
+		if (this.props.formType === "login") {
+			welcomeTitle = "Sign in to Sleek";
+			welcomeMessage = "Enter your email address and password.";
+			redirectMessage = "Already have an account?";
+			redirectLink = <Link to="/signup">Sign up</Link>;
+		} else {
+			welcomeTitle = "Join Sleek";
+			welcomeMessage = "Enter your email address and password.";
+			redirectMessage = "Already have an account?";
+			redirectLink = <Link to="/login">Sign in</Link>;
+			username = (
+				<input
+					type="text"
+					placeholder = "funky username here"
+					value={this.state.username}
+					onChange={this.update("username")}
+					className="login-input" />
+			);
+		}
+
+	return(
+		<div className="login-form">
+			<form onSubmit={this.handleSubmit} className="login-form-box">
+				{welcomeTitle}
+				<br/>
+				{welcomeMessage}
+				<div className="login-form">
+
+					{username}
+
+					<input
+						type="text"
+						placeholder="email goes here"
+						value={this.state.email}
+						onChange={this.update("email")}
+						className="login-input" />
+
+					<input
+						placeholder="password"
+						type="password"
+						value={this.state.password}
+						onChange={this.update("password")}
+						className="login-input" />
+
+					<input type="submit" value="Submit" />
+				</div>
+				<p>{redirectMessage} {redirectLink}</p>
+			</form>
+		</div>
 		);
 	}
 
 	render() {
 		return (
 			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Join Sleek
-					<br/>
-					Enter your email address and password
-					{this.renderErrors()}
-					<div className="login-form">
-						<br/>
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
-						<br/>
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
-						<br/>
-						<input type="submit" value="Submit" />
-					</div>
-					Please {this.props.formType} or {this.navLink()}
-				</form>
+				{this.renderErrors()}
+				{this.renderForm()}
 			</div>
 		);
 	}
-
 }
 
 export default withRouter(SessionForm);
