@@ -40,7 +40,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'pry-rails'
-  gem 'validates_email_format_of'
+  # gem 'validates_email_format_of'
 end
 
 group :development do

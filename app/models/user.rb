@@ -18,7 +18,7 @@ class User < ApplicationRecord
 	validates :username, :email, :session_token, uniqueness: true
 	validates :password, length: {minimum: 6, allow_nil: true}
   # validates_email_format_of :email, message: 'is not valid'
-  validates :email, email_format: { message: 'is not valid' }
+  # validates :email, email_format: { message: 'is not valid' }
 
   after_initialize :ensure_session_token
 
