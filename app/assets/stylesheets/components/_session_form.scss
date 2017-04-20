@@ -1,23 +1,15 @@
-// * {
-//   border: 1px solid red !important;
-// }
-
 body {
   background-color: $snow;
-
-}
-
-.appContainer {
-
 }
 
 .login-form-container {
-  margin-top: 100px;
+  // margin-top: 100px;
+  margin-top: calc(140px);
 }
 
-.login-form-container ul {
+.errors {
   width: 635px;
-  border: 1px solid $border-light-grey;
+  border: 1px solid $border-mid-grey;
   margin: 0 auto;
   border-radius: 4px;
   background: $white;
@@ -28,24 +20,28 @@ body {
   font-family: $lato
 }
 
-.login-form-container ul li {
+.errors li {
   padding: 3px;
   border-bottom: 1px solid $border-light-grey;
+  color: $text-grey;
+  font-weight: 300;
 }
 
 .login-form-container ul li:last-child {
   padding: 3px;
   border-bottom: 0px;
+  color: $text-grey;
+  font-weight: 300;
 }
 
 .login-form {
   width: 635px;
   padding: 16px;
-  border: 1px solid $border-light-grey;
+  border: 1px solid $border-mid-grey;
   margin: 0 auto;
   border-radius: 4px;
   background: $white;
-
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
 
 .login-form-box h1 {
@@ -81,18 +77,23 @@ body {
   font-size: 1.25rem;
 }
 
+.login-form-box input:hover {
+  border: 1px solid $slack-blue;
+}
+
 .login-form-box input.submit {
   display: block;
   margin-bottom: 16px;
   width: 60%;
   text-align: center;
   background-color: $slack-green;
-  font-size: 20px;
-  font-weight: 700;
   border: 1px solid $slack-green;
+  font-size: 20px;
+  font-weight: 400;
   color: white;
   border-radius: 4px;
   line-height: 1.2rem;
+  cursor: pointer;
 }
 
 .login-form-box p.redirect {
@@ -110,4 +111,79 @@ body {
 li span {
   margin-right: 8px;
   color: $error-red;
+}
+
+.signNav {
+  display: block;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid $border-mid-grey;
+  background: $white;
+  margin-bottom: 27px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 70px;
+}
+
+.leftmenu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
+
+}
+
+.signNav ul {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.signNav ul li {
+  padding: 10px;
+  color: $border-dark-grey;
+  font-family: $lato;
+  font-size: 15px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 9px;
+}
+
+.signNav ul li .signin {
+  padding: 10px;
+  border: 2px solid $border-dark-grey;
+  color: $border-dark-grey;
+  border-radius: 4px;
+  font-family: $lato;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.signNav ul li a {
+  vertical-align: center;
+  display: block;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 30px;
+  width: 105px;
+  height: 41px;
+  vertical-align: center;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $placeholder-text-grey;
+  font-size: 20px;
+  font-family: $lato;
+  font-weight: lighter;
 }

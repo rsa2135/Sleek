@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
 		return(
-			<ul>
+			<ul className="errors">
 				{
 					this.props.errors.map((error, i) => {
 						if (error !== "Password digest can't be blank") {
@@ -58,6 +58,32 @@ class SessionForm extends React.Component {
 				)
 			}
 			</ul>
+		);
+	}
+
+	renderNav() {
+		return (
+			<nav className="signNav">
+				<ul>
+
+					<img className="logo" src="/assets/sleek-logo.png"  />
+
+					<div className="leftmenu">
+						<li>
+							<Link to >Guest 1</Link>
+						</li>
+
+						<li>
+							<Link to >Guest 2</Link>
+						</li>
+
+						<li>
+							<Link to="/login" className="signin">Sign In</Link>
+						</li>
+					</div>
+
+				</ul>
+			</nav>
 		);
 	}
 
@@ -135,6 +161,7 @@ class SessionForm extends React.Component {
 	render() {
 		return (
 			<div className="login-form-container">
+				{this.renderNav()}
 				{this.props.errors.length === 0 ? "" : this.renderErrors()}
 				{this.renderForm()}
 			</div>
