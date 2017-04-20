@@ -73,7 +73,7 @@ body {
   width: 60%;
   border: 1px solid $border-light-grey;
   border-radius: 4px;
-  color: $placeholder-text-grey;
+  color: black;
   font-size: 1.25rem;
 }
 
@@ -166,6 +166,7 @@ li span {
   display: block;
   white-space: nowrap;
   overflow: hidden;
+  font-weight: normal;
 }
 
 .signNav ul li a {
@@ -186,4 +187,9 @@ li span {
   font-size: 20px;
   font-family: $lato;
   font-weight: lighter;
+}
+
+// temp for testing
+.login-signup {
+  display: none;
 }

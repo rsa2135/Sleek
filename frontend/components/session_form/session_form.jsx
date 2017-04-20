@@ -28,6 +28,11 @@ class SessionForm extends React.Component {
 	componentWillReceiveProps(newProps) {
     if (newProps.formType !== this.props.formType) {
       this.props.clearErrors();
+			this.setState({
+				username: "",
+				email: "",
+				password: ""
+			});
     }
 	}
 	update(field) {
