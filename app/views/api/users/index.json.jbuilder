@@ -1,3 +1,3 @@
-json.array! @guests do |guest|
+json.array! @users do |user|
   json.partial! "api/users/user", user: user
 end
