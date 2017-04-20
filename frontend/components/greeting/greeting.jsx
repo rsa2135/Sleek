@@ -3,11 +3,10 @@ import { Link } from 'react-router';
 
 const sessionLinks = () => (
   <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
+    You are logged out
   </nav>
 );
+
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
@@ -16,8 +15,14 @@ const personalGreeting = (currentUser, logout) => (
 	</hgroup>
 );
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
-);
+const Greeting = ({ currentUser, logout, router }) => {
+  const logOutAndRedirect = () => {
+    logout().then(() => router.push('/login'))
+  }
+
+  return (
+    currentUser ? personalGreeting(currentUser, logOutAndRedirect) : sessionLinks()
+  )
+};
 
 export default Greeting;

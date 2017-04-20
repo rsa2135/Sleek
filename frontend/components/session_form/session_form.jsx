@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import FontAwesome from 'react-fontawesome'
+import FontAwesome from 'react-fontawesome';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.update = this.update.bind(this);
+		this.loginGuest = this.loginGuest.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -47,6 +48,18 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
 	}
 
+	loginGuest(guestNum) {
+		return (e) => {
+			e.preventDefault();
+			const user = {
+				username: guestNum,
+				email: `${guestNum}@example.com`,
+				password: "password"
+			};
+			this.props.login({user});
+		};
+	}
+
 	renderErrors() {
 		return(
 			<ul className="errors">
@@ -71,15 +84,15 @@ class SessionForm extends React.Component {
 			<nav className="signNav">
 				<ul>
 
-					<img className="logo" src="/assets/sleek-logo.png"  />
+					<img className="logo" src={window.images.logo} />
 
 					<div className="leftmenu">
 						<li>
-							<Link to >Guest 1</Link>
+							<a href="#" onClick={this.loginGuest('guest1')} >Guest 1</a>
 						</li>
 
 						<li>
-							<Link to >Guest 2</Link>
+							<a href="#" onClick={this.loginGuest('guest2')}>Guest 2</a>
 						</li>
 
 						<li>
@@ -143,7 +156,7 @@ class SessionForm extends React.Component {
 				{username}
 
 				<input
-					type="text"
+					type="email"
 					placeholder="email goes here"
 					value={this.state.email}
 					onChange={this.update("email")}

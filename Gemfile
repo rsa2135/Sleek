@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'validates_email_format_of'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,7 +41,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'pry-rails'
-  # gem 'validates_email_format_of'
 end
 
 group :development do

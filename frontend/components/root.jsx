@@ -4,6 +4,7 @@ import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container'
+import GreetingContainer from './greeting/greeting_container'
 
 const Root = ({ store }) => {
 
@@ -25,8 +26,10 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path='/' components={ App }>
+          <IndexRedirect to="/messages" />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="/messages" component={GreetingContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>
@@ -34,6 +37,3 @@ const Root = ({ store }) => {
 };
 
 export default Root;
-
-
-// <IndexRedirect to="/messages" />
