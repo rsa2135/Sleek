@@ -5,9 +5,10 @@
       user: current_user
     ).html_safe %>
   <% end %>
-  
+
   window.images = {
-    logo: "<%= image_path("sleek-logo.png") %>"
+    logo: "<%= image_path("sleek-logo.png") %>",
+    default_avatar: "<%= image_path("default_avatar.png") %>"
   }
 </script>
 
