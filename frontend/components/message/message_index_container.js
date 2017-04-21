@@ -5,7 +5,6 @@ import { selectAllMessages } from '../../selectors/message_selector';
 import { fetchMessages } from '../../actions/message_actions';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     messages: selectAllMessages(state)
   };

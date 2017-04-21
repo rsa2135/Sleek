@@ -8,7 +8,6 @@ class MessageItem extends React.Component {
 
   render() {
     const { id, author, author_id, created_at, body, image_url } = this.props.message;
-    debugger
     return (
       <li>
         <MessageContent id={id} author={author} body={body} timestamp={created_at} />

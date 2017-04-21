@@ -4,7 +4,6 @@ class MessageContent extends React.Component {
 
   render() {
     let {id, author, timestamp, body} = this.props;
-    debugger
     return (
       <div className="message_content_container">
 
