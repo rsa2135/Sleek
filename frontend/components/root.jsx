@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import { IntlProvider } from 'react-intl';
 
 import App from './app';
 import Chat from './chat';
@@ -25,14 +26,16 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={ store }>
-      <Router history={ hashHistory }>
-        <Route path='/' components={ App }>
-          <IndexRedirect to="/messages" />
-          <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/messages" component={Chat} onEnter={_ensureLoggedIn} />
-        </Route>
-      </Router>
+      <IntlProvider locale="en">
+        <Router history={ hashHistory }>
+          <Route path='/' components={ App }>
+            <IndexRedirect to="/messages" />
+            <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+            <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+            <Route path="/messages" component={Chat} onEnter={_ensureLoggedIn} />
+          </Route>
+        </Router>
+      </IntlProvider>
     </Provider>
   );
 };

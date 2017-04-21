@@ -1,4 +1,6 @@
 import React from 'react';
+import {FormattedDate} from 'react-intl';
+import {FormattedTime} from 'react-intl';
 
 class MessageContent extends React.Component {
 
@@ -9,10 +11,12 @@ class MessageContent extends React.Component {
 
         <div className="message_header_container">
           <p>{author}</p>
-          <span>{timestamp}</span>
+
+          <FormattedTime value={timestamp} />
+
         </div>
 
-        <span>{body}</span>
+        <span className="body">{body}</span>
 
       </div>
     );
@@ -20,3 +24,5 @@ class MessageContent extends React.Component {
 }
 
 export default MessageContent;
+// <span className="time_stamp">
+// </span>

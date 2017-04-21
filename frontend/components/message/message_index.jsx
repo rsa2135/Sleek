@@ -15,7 +15,7 @@ class MessageIndex extends React.Component {
   render() {
     const { messages } = this.props;
     return (
-      <section>
+      <section className="chat_active_window">
         <ul>
           {messages.map((message) => <MessageItem message={message} key={message.id} />)}
         </ul>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 
 const sessionLinks = () => (
   <nav className="login-signup">
@@ -25,4 +26,4 @@ const Greeting = ({ currentUser, logout, router }) => {
   )
 };
 
-export default Greeting;
+export default withRouter(Greeting);

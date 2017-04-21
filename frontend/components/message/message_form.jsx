@@ -26,21 +26,22 @@ class MessageForm extends React.Component {
   renderMessageBar() {
     let channelType = this.props.is_dm === 'true' ? "dm" : "channel";
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="message_form">
         <input
+          className="message_bar_text"
           type="text"
           placeholder={channelType}
           value={this.state.body}
           onChange={this.handleChange} />
 
-        <input type="submit" />
+        <input type="submit" className="hidden_submit" />
       </form>
     );
   }
 
   render() {
     return (
-      <div>
+      <div className="message_bar">
         {this.renderMessageBar()}
       </div>
     );
