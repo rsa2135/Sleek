@@ -24,5 +24,3 @@ class MessageContent extends React.Component {
 }
 
 export default MessageContent;
-// <span className="time_stamp">
-// </span>

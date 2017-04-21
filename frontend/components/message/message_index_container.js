@@ -6,8 +6,10 @@ import { fetchMessages } from '../../actions/message_actions';
 
 const mapStateToProps = (state) => {
   return {
-    messages: selectAllMessages(state)
+    messages: selectAllMessages(state),
+    channel_id: 1
   };
+  // NOTE remeber grabbing channel from state
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -2,7 +2,8 @@ class Api::MessagesController < ApplicationController
   before_filter :require_logged_in
 
   def index
-    @messages = Message.all
+    # double check
+    @messages = Message.all.includes(:author)
     render :index
   end
 
@@ -15,6 +16,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.author = current_user
     if @message.save
+      Pusher.trigger("#{@message.channel_id}", 'message_sent', {})
       render :show
     else
       render json: @message.errors.full_messages, status: 400
