@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MessageItem from './message_item';
-
+import Scroll from 'react-scroll';
 import MessageFormContainer from './message_form_container';
 
 class MessageIndex extends React.Component {
@@ -19,24 +19,18 @@ class MessageIndex extends React.Component {
     channel.bind('message_sent', (data) => {
       this.fetchMessages();
     });
+
+    let Element = Scroll.animateScroll;
+    scroll.scrollTo(10000);
+  }
+
+  componentWillReceiveProps() {
+    let scroll = Scroll.animateScroll;
+    scroll.scrollTo(10000);
   }
 
   componentWillUnmount() {
     this.pusher.unsubscribe();
-  }
-
-  componentWillUpdate() {
-    debugger
-    let node = ReactDOM.findDOMNode(this);
-    this.shouldScrollBottom = node.scrollTop + node.offsetHeight === node.scrollHeight;
-  }
-
-  componentDidUpdate() {
-    debugger
-    if (this.shouldScrollBottom) {
-      let node = ReactDOM.findDOMNode(this);
-      node.scrollTop = node.scrollHeight;
-    }
   }
 
   render() {

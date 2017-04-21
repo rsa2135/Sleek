@@ -1,4 +1,5 @@
 import React from 'react';
+import Scroll from 'react-scroll';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -40,8 +41,9 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    let Element = Scroll.Element;
     return (
-      <div className="message_bar">
+      <div className="message_bar" name="bottom">
         {this.renderMessageBar()}
       </div>
     );
