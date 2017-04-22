@@ -1,5 +1,3 @@
 export const selectAllMessages = ({ messages }) => {
-  return (
-    Object.keys(messages).map(id => messages[id])
-  );
+  return Object.keys(messages).map(id => messages[id])
 };
