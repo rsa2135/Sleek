@@ -44,10 +44,13 @@
   display: inline-block;
   border: 1px solid $slack-green;
   border-radius: 4px;
-  padding: 9px;
+  padding: 7px;
   height: 100%;
   word-wrap: break-word;
-  line-height: 22px;
+  line-height: 18px;
+  box-sizing: content-box;
+  margin-top: 2px;
+  margin-bottom: 0px;
 }
 
 .chat_active_window p {
@@ -133,7 +136,7 @@
 
 .message_actions {
   position: absolute;
-  top: -5px;
+  top: -4px;
   right: 10px;
   border: 1px solid $hoverbox_grey;
   border-radius: 6px;
