@@ -21,12 +21,12 @@ class MessageIndex extends React.Component {
     });
 
     let Element = Scroll.animateScroll;
-    scroll.scrollTo(10000);
+    scroll.scrollTo(10000, {delay: 0});
   }
 
   componentWillReceiveProps() {
     let scroll = Scroll.animateScroll;
-    scroll.scrollTo(10000);
+    scroll.scrollTo(10000, {delay: 0});
   }
 
   componentWillUnmount() {
