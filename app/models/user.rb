@@ -24,6 +24,10 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :messages
+  has_many :subscriptions
+  has_many :channels,
+    through: :subscriptions,
+    source: :channel
 
   def password=(password)
 		self.password_digest = BCrypt::Password.create(password)

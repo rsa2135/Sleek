@@ -3,7 +3,6 @@
   font-family: $lato;
   background-color: $white;
   display: flex;
-  // height: 100%;
 }
 
 .chat_active_window {
@@ -61,7 +60,7 @@
   font-weight: 900;
   display: inline;
   vertical-align: middle;
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 .chat_active_window li {

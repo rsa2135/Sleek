@@ -2,7 +2,6 @@ class Api::MessagesController < ApplicationController
   before_filter :require_logged_in
 
   def index
-    # double check
     @messages = Message.all.includes(:author)
     render :index
   end

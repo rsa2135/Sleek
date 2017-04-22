@@ -11,11 +11,13 @@
 #
 
 class Message < ApplicationRecord
-  validates :author, :channel_id, :body, presence: true
+  validates :author, :channel, :body, presence: true
 
   belongs_to :author,
     class_name: :User,
     primary_key: :id,
     foreign_key: :author_id
+
+  belongs_to :channel
 
 end
