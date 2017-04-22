@@ -1,10 +1,5 @@
-// * {
-//   border: 1px solid red !important;
-// }
-
 .chat_container {
   margin-top: calc(42px);
-  // margin-left: calc(220px);
   font-family: $lato;
   background-color: $white;
   display: flex;
@@ -15,7 +10,6 @@
   display: block;
   width: 100%;
   margin-bottom: calc(77px);
-  // padding-bottom: 34px;
 }
 
 .message_content_container {
@@ -28,7 +22,6 @@
   font-size: 15px;
   display: block;
   line-height: 22px;
-  // vertical-align: top;
 }
 
 .chat_active_window form {
@@ -36,12 +29,24 @@
 }
 
 .message_header_container span {
-  // line-height: 22px;
   display: inline;
   font-size: 12px;
   color: $timestamp-grey;
   display: inline-block;
   vertical-align: middle;
+}
+
+.edit_input {
+  display: block;
+  font-size: 15px;
+  color: $blackish;
+  display: inline-block;
+  border: 1px solid $slack-green;
+  border-radius: 4px;
+  padding: 9px;
+  height: 100%;
+  word-wrap: break-word;
+  line-height: 22px;
 }
 
 .chat_active_window p {
@@ -72,7 +77,7 @@
   width: 100%;
 }
 
-.chat_active_window form input:last-child {
+.hidden_submit {
   display: none;
 }
 
@@ -83,6 +88,7 @@
 
 .message_body {
   display: flex;
+  position: relative;
 }
 
 .avatar_container {
@@ -100,19 +106,18 @@
 }
 
 .message_bar {
-  width: 100%;
+  width: 90%;
   height: 61px;
   border-radius: 6px;
   padding-bottom: 10px;
-  display: block;
-  // padding-top: 17px;
-
+  display: inline-block;
   position: fixed;
   bottom: 0;
   background-color: $white;
 }
 
 .message_bar_text {
+  width: 100%;
   margin-left: 20px;
   margin-right: 20px;
   border: 2px solid $search-border-no-focus;
@@ -127,4 +132,32 @@
 
 .message_bar_text:focus {
   border: 2px solid $search-border-focus;
+}
+
+.message_actions {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  border: 1px solid $hoverbox_grey;
+  border-radius: 6px;
+  height: 27px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message_actions button {
+  padding: 6px 0 4px 0;
+  border-right: 1px solid $hoverbox_grey;
+  color: $action_buttons;
+  width: 34px;
+}
+
+.message_actions button span {
+  display: block;
+  color: $blackish;
+  font-size: 15px;
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  vertical-align: center;
 }

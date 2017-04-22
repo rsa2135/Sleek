@@ -20,7 +20,7 @@ class MessageIndex extends React.Component {
       this.fetchMessages();
     });
 
-    let Element = Scroll.animateScroll;
+    let scroll = Scroll.animateScroll;
     scroll.scrollTo(10000, {delay: 0});
   }
 
@@ -34,11 +34,15 @@ class MessageIndex extends React.Component {
   }
 
   render() {
-    const { messages } = this.props;
+    const { messages, updateMessage, deleteMessage } = this.props;
     return (
       <section className="chat_active_window">
         <ul>
-          {messages.map((message) => <MessageItem message={message} key={message.id} />)}
+          {messages.map((message) => <MessageItem
+                                        message={message}
+                                        updateMessage={updateMessage}
+                                        deleteMessage={deleteMessage}
+                                        key={message.id} />)}
         </ul>
         <MessageFormContainer />
       </section>

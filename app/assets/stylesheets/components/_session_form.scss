@@ -1,6 +1,14 @@
-body {
+body, html {
   background-color: $snow;
   height: 100%
+}
+
+#root {
+  height: 100%;
+}
+
+.appContainer {
+  height: 100%;
 }
 
 .login-form-container {

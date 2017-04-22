@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import MessageIndex from './message_index';
 import { selectAllMessages } from '../../selectors/message_selector';
-import { fetchMessages } from '../../actions/message_actions';
+import { fetchMessages, deleteMessage, updateMessage } from '../../actions/message_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -14,7 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMessages: () => dispatch(fetchMessages())
+    fetchMessages: () => dispatch(fetchMessages()),
+    deleteMessage: (id) => dispatch(deleteMessage(id)),
+    updateMessage: (message) => dispatch(updateMessage(message))
   };
 };
 
