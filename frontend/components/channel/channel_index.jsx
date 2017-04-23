@@ -4,11 +4,12 @@ import ChannelItem from './channel_item';
 
 
 const ChannelIndex = (props) => {
+  debugger
   return(
     <ul>
-      {props.channels.map(channel => <ChannelItem channel={channel} />)}
+      {props.subscriptions.map(subscription => <ChannelItem subscription={subscription} />)}
     </ul>
   );
 };
 
-export default Channelndex;
+export default ChannelIndex;

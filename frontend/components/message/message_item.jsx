@@ -8,7 +8,6 @@ class MessageItem extends React.Component {
   render() {
     const { id, author, author_id, created_at, body, image_url} = this.props.message;
     const { deleteMessage, updateMessage } = this.props;
-    // debugger
     return (
       <li className="message_body">
         <MessageAvatar userImageUrl={image_url} />

@@ -7,7 +7,7 @@ import { deleteChannel } from '../../actions/channel_actions';
 
 class ChannelItem extends React.Component {
   constructor(props) {
-    props(super);
+    super(props);
     this.handleDmDelete = this.handleDmDelete.bind(this);
   }
 
@@ -79,11 +79,11 @@ class ChannelItem extends React.Component {
 //
 // };
 
-mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
   return {
     deleteChannel: id => dispatch(deleteChannel(id))
   };
-};
+}
 
 export default connect(
   null,

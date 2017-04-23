@@ -1,3 +1,3 @@
-export const allChannels = ({channels}) => {
+export const selectAllChannels = ({channels}) => {
   return Object.keys({channels}).map(id => channels[id]);
 };

@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchMessages: () => dispatch(fetchMessages()),
-    deleteMessage: (id) => dispatch(deleteMessage(id)),
-    updateMessage: (message) => dispatch(updateMessage(message))
+    deleteMessage: id => dispatch(deleteMessage(id)),
+    updateMessage: message => dispatch(updateMessage(message))
   };
 };
 

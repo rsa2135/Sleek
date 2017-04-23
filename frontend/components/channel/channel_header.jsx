@@ -1,7 +1,8 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
-const renderAdditionalHeaderInfo = () => {
+const renderAdditionalHeaderInfo = (props) => {
+  debugger
   if (props.channelSection === "channel") {
     return (
       <span className="channel_count">
@@ -18,11 +19,11 @@ const renderAdditionalHeaderInfo = () => {
   }
 };
 
-const ChannelHeader = () => {
+const ChannelHeader = (props) => {
   return(
     <h2>
       {`${props.channelSection}s`}
-      {renderAdditionalHeaderInfo()}
+      {renderAdditionalHeaderInfo(props)}
     </h2>
   );
 };
