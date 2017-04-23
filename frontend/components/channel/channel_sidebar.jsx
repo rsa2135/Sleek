@@ -11,11 +11,23 @@ class ChannelSidebar extends React.component {
   render() {
     return(
       <div className="channels_sidebar">
-        <TeamMenu currentUser={this.props.currentUser} logout={this.props.logout}/>
+        <TeamMenu
+          currentUser={this.props.currentUser}
+          logout={this.props.logout}
+          />
 
         <div className="channels_scroller">
-          <ChannelsWrapper channelSection={'channel'} channels={this.props.channels} />
-          <ChannelsWrapper channelSection={'direct message'} channels={this.props.channels} />
+          <ChannelsWrapper
+            channelSection={'channel'}
+            channels={this.props.channels}
+            channelCount={this.props.channels.length}
+            />
+
+          <ChannelsWrapper
+            channelSection={'direct message'}
+            channels={this.props.channels}
+            />
+          
         </div>
       </div>
     );

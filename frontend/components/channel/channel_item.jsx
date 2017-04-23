@@ -11,7 +11,6 @@ class ChannelItem extends React.Component {
     this.handleDmDelete = this.handleDmDelete.bind(this);
   }
 
-
   renderChannel({current_channel}) {
     if (channel_id === current_channel) {
       return(
@@ -75,7 +74,7 @@ class ChannelItem extends React.Component {
 
 }
 
-// Do i need t oconnect state?
+// Do i need to connect state?
 // mapStateToProps = (state) => {
 //
 // };
