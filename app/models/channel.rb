@@ -15,7 +15,7 @@ class Channel < ApplicationRecord
   validates :name, presence: true
   validates :private, :is_dm, inclusion: { in: [true, false] }
 
-  has_many :subscriptions
+  has_many :subscriptions, inverse_of: :channel
   has_many :messages
   has_many :users,
     through: :subscriptions,

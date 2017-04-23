@@ -12,8 +12,14 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_parmas)
-    if @channel.create
+    debugger
+    @channel = Channel.new(channel_params)
+    debugger
+    @subscription = Subscription.create(
+      user: current_user,
+      channel: @channel
+    )
+    if @channel.save && @subscription.save
       render :show
     else
       render json: @channel.errors.full_messages, status: 400

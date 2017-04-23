@@ -7,12 +7,13 @@ const _defaultState = {};
 
 const ChannelReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
+  // debugger
   switch (action.type) {
     case RECEIVE_ALL_CHANNELS:
       return action.channels;
 
-    case RECEIVE_CHANNEL:
-      return merge({}, oldState, {[action.channel.id]: action.channel});
+    // case RECEIVE_CHANNEL:
+    //   return merge({}, oldState, {[action.channel.id]: action.channel});
 
     case REMOVE_CHANNEL:
       let newState = merge({}, oldState);

@@ -24,7 +24,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :messages
-  has_many :subscriptions
+  has_many :subscriptions, inverse_of: :user
   has_many :channels,
     through: :subscriptions,
     source: :channel

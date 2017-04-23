@@ -5,6 +5,7 @@ export const fetchChannels = () => {
   });
 };
 
+// Do I need this?
 export const fetchChannel = (id) => {
   return $.ajax({
     method: 'GET',
@@ -12,11 +13,11 @@ export const fetchChannel = (id) => {
   });
 };
 
-export const createChannel = (channel) => {
+export const createChannel = (channel, user) => {
   return $.ajax({
     method: 'POST',
     url: '/api/channels/',
-    data: channel
+    data: channel, user
   });
 };
 

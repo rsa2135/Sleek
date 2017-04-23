@@ -4,9 +4,18 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { fetchMessages, fetchMessage, createMessage, updateMessage, deleteMessage } from './actions/message_actions';
+import { fetchChannels, createChannel, updateChannel, deleteChannel } from './actions/channel_actions';
+import { fetchUserSubscriptions, fetchChannelSubscriptions } from './actions/subscription_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  window.fetchChannels = fetchChannels;
+  window.createChannel = createChannel;
+  window.updateChannel = updateChannel;
+  window.deleteChannel = deleteChannel;
+
+  window.fetchUserSubscriptions = fetchUserSubscriptions;
+  window.fetchChannelSubscriptions = fetchChannelSubscriptions;
 
   let store;
   if (window.currentUser) {

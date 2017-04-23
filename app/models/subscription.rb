@@ -13,6 +13,6 @@ class Subscription < ApplicationRecord
   validates :user, :channel, presence: true
   validates :user, uniqueness: { scope: :channel }
 
-  belongs_to :user
-  belongs_to :channel
+  belongs_to :user, inverse_of: :subscriptions
+  belongs_to :channel, inverse_of: :subscriptions
 end
