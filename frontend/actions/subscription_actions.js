@@ -11,7 +11,6 @@ export const receiveSubscriptions = (subscriptions) => {
 
 export const fetchUserSubscriptions = (user_id) => {
   return (dispatch) => {
-    debugger
     return SubscriptionApiUtil.fetchUserSubscritpions(user_id)
       .then(subscriptions => dispatch(receiveSubscriptions(subscriptions)));
   };

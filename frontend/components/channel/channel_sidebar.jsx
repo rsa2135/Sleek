@@ -6,9 +6,8 @@ import ChannelsWrapper from './channels_wrapper';
 class ChannelSidebar extends React.Component {
   constructor(props) {
     super(props);
-    debugger
-    props.fetchUserSubscriptions(props.currentUser.id);
-    props.fetchChannels();
+    // props.fetchUserSubscriptions(props.currentUser.id);
+    // props.fetchChannels();
   }
 
   componentDidMount() {
@@ -17,7 +16,6 @@ class ChannelSidebar extends React.Component {
   }
 
   render() {
-    debugger
     return(
       <div className="channels_sidebar">
         <TeamMenu

@@ -2,7 +2,6 @@ class Api::SubscriptionsController < ApplicationController
   before_filter :require_logged_in
 
   def index
-    debugger
     if params[:user_id]
       @subscriptions = Subscription
         .where(user_id: params[:user_id])

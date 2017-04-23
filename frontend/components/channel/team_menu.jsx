@@ -29,7 +29,7 @@ class TeamMenu extends React.Component {
 
         <div>
           <span>
-            <FontAwesome name='circle-o' />
+            <FontAwesome name='circle' />
           </span>
 
           <span>

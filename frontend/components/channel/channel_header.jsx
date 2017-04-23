@@ -2,7 +2,6 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
 const renderAdditionalHeaderInfo = (props) => {
-  debugger
   if (props.channelSection === "channel") {
     return (
       <span className="channel_count">

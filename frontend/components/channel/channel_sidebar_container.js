@@ -9,7 +9,6 @@ import { selectAllChannels } from '../../selectors/channel_selector';
 
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     currentUser: state.session.currentUser,
     subscriptions: selectAllSubscriptions(state),
@@ -18,7 +17,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  debugger
   return {
     logout: () => dispatch(logout()),
     fetchUserSubscriptions: (user_id) => dispatch(fetchUserSubscriptions(user_id)),

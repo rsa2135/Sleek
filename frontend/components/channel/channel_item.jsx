@@ -11,26 +11,28 @@ class ChannelItem extends React.Component {
     this.handleDmDelete = this.handleDmDelete.bind(this);
   }
 
-  renderChannel({current_channel}) {
-    if (channel_id === current_channel) {
+  renderChannel() {
+    let {subscription, currentUser} = this.props;
+    if (currentUser.channel_id === subscription.current_channel) {
       return(
-        <span className="current_channel">{channel_name}</span>
+        <span className="current_channel">{subscription.channel_name}</span>
       );
     } else {
       return (
-        <span className="unselected_channel">{channel_name}</span>
+        <span className="unselected_channel">{subscription.channel_name}</span>
       );
     }
   }
 
-  renderStatus({channel_type}) {
-    if (channel_type.private === true) {
+  renderStatus(props) {
+    let {subscription} = this.props;
+    if (subscription.private === true) {
       return(
         <span>
           <FontAwesome name='lock' />
         </span>
       );
-    } else if (channel_type.is_dm === true ) {
+    } else if (subscription.is_dm === true ) {
       return (
         <span>
           <FontAwesome name='circle-o' />
@@ -50,8 +52,9 @@ class ChannelItem extends React.Component {
     this.props.deleteChannel(this.props.channel.id);
   }
 
-  renderDmDeleteButton(channel) {
-    if (this.props.channel.is_dm === true) {
+  renderDmDeleteButton() {
+    let {subscription} = this.props;
+    if (subscription.is_dm === true) {
       return (
         <button onClick={handleDmDelete()}>
           <FontAwesome name='times-circle-o' />
@@ -60,13 +63,13 @@ class ChannelItem extends React.Component {
     }
   }
 
-  ChannelItem() {
+  render() {
     return(
       <li>
         <a href="#">
-          {renderChannel()}
-          {renderStatus()}
-          {renderDmDeleteButton()}
+          {this.renderStatus()}
+          {this.renderChannel()}
+          {this.renderDmDeleteButton()}
         </a>
       </li>
     );
@@ -74,10 +77,11 @@ class ChannelItem extends React.Component {
 
 }
 
-// Do i need to connect state?
-// mapStateToProps = (state) => {
-//
-// };
+function mapStateToProps(state) {
+  return {
+    currentUser: state.session.currentUser,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -86,6 +90,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChannelItem);

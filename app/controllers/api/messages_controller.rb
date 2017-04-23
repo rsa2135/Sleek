@@ -12,6 +12,7 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
+    debugger
     @message = Message.new(message_params)
     @message.author = current_user
     if @message.save
