@@ -25,9 +25,9 @@ export const removeMessage = (message) => {
   };
 };
 
-export const fetchMessages = () => {
+export const fetchMessages = (channel_id) => {
   return (dispatch) => {
-    return MessageApiUtil.fetchMessages()
+    return MessageApiUtil.fetchMessages(channel_id)
       .then(messages => dispatch(receiveAllMessages(messages)));
   };
 };
@@ -47,7 +47,6 @@ export const createMessage = (message) => {
 };
 
 export const updateMessage = (message) => {
-  debugger
   return (dispatch) => {
     return MessageApiUtil.updateMessage(message)
       .then(message => dispatch(receiveMessage(message)));
@@ -55,7 +54,6 @@ export const updateMessage = (message) => {
 };
 
 export const deleteMessage = (id) => {
-  debugger
   return (dispatch) => {
     return MessageApiUtil.deleteMessage(id)
       .then(message => dispatch(removeMessage(message)));

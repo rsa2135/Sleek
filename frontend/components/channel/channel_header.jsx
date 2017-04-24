@@ -5,7 +5,7 @@ const renderAdditionalHeaderInfo = (props) => {
   if (props.channelSection === "channel") {
     return (
       <span className="channel_count">
-        {props.channelCount}
+        ({props.channelCount})
       </span>
     );
 
@@ -20,7 +20,7 @@ const renderAdditionalHeaderInfo = (props) => {
 
 const ChannelHeader = (props) => {
   return(
-    <h2>
+    <h2 className="channel-header">
       {`${props.channelSection}s`}
       {renderAdditionalHeaderInfo(props)}
     </h2>

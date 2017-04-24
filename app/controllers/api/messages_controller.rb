@@ -2,7 +2,7 @@ class Api::MessagesController < ApplicationController
   before_filter :require_logged_in
 
   def index
-    @messages = Message.all.includes(:author)
+    @messages = Message.all.where(channel_id: params[:channel_id]).includes(:author)
     render :index
   end
 
@@ -12,7 +12,6 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-    debugger
     @message = Message.new(message_params)
     @message.author = current_user
     if @message.save

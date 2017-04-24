@@ -6,7 +6,7 @@ class MessageForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      channel_id: 1,
+      channel_id: props.params.channelId
     };
     // NOTE pull current channel from state when channels component is up and running
 

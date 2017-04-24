@@ -10,6 +10,8 @@
     logo: "<%= image_path("sleek-logo.png") %>",
     default_avatar: "<%= image_path("default_avatar.png") %>"
   }
+
+  window.generalChannelId = <%= Channel.find_by(name: 'general').id %>
 </script>
 
 <main id='root'>Frontend Broke!</main>

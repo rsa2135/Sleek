@@ -7,7 +7,6 @@ const _defaultState = {};
 
 const ChannelReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
-  // debugger
   switch (action.type) {
     case RECEIVE_ALL_CHANNELS:
       return action.channels;

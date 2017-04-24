@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
+import { Link } from 'react-router';
 
 import { deleteChannel } from '../../actions/channel_actions';
 
@@ -15,11 +16,11 @@ class ChannelItem extends React.Component {
     let {subscription, currentUser} = this.props;
     if (currentUser.channel_id === subscription.current_channel) {
       return(
-        <span className="current_channel">{subscription.channel_name}</span>
+        <span className="channel-name">{subscription.channel_name}</span>
       );
     } else {
       return (
-        <span className="unselected_channel">{subscription.channel_name}</span>
+        <span className="channel-name">{subscription.channel_name}</span>
       );
     }
   }
@@ -28,19 +29,19 @@ class ChannelItem extends React.Component {
     let {subscription} = this.props;
     if (subscription.private === true) {
       return(
-        <span>
+        <span className="status">
           <FontAwesome name='lock' />
         </span>
       );
     } else if (subscription.is_dm === true ) {
       return (
-        <span>
+        <span className="status">
           <FontAwesome name='circle-o' />
         </span>
       );
     } else {
       return (
-        <span>
+        <span className="status">
           #
         </span>
       );
@@ -63,19 +64,29 @@ class ChannelItem extends React.Component {
     }
   }
 
+  isSelected() {
+    let {subscription, currentUser} = this.props;
+    if (currentUser.channel_id === subscription.current_channel) {
+      return("current_channel");
+    } else {
+      return("unselected_channel");
+    }
+  }
+
   render() {
+    let { subscription } = this.props;
     return(
-      <li>
-        <a href="#">
+      <li className="channel-li">
+        <Link to={`messages/${subscription.channel_id}`} activeClassName="selected-channel" >
           {this.renderStatus()}
-          {this.renderChannel()}
+          {this.props.currentUser ? this.renderChannel() : null }
           {this.renderDmDeleteButton()}
-        </a>
+        </Link>
       </li>
     );
   }
-
 }
+
 
 function mapStateToProps(state) {
   return {

@@ -5,26 +5,30 @@ import Scroll from 'react-scroll';
 import MessageFormContainer from './message_form_container';
 
 class MessageIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.fetchMessages = this.props.fetchMessages.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.fetchMessages = this.props.fetchMessages.bind(this);
+  // }
 
   componentDidMount() {
-    this.fetchMessages();
+    this.props.fetchMessages(this.props.params.channelId);
     this.pusher = new Pusher('a0af77adf5648503636d', {
       encrypted: true
     });
-    let channel = this.pusher.subscribe(`${this.props.channel_id}`);
+    let channel = this.pusher.subscribe(`${this.props.params.channelId}`);
     channel.bind('message_sent', (data) => {
-      this.fetchMessages();
+      this.props.fetchMessages(this.props.params.channelId);
     });
 
     let scroll = Scroll.animateScroll;
     scroll.scrollTo(10000, {delay: 0});
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(newProps) {
+    // debugger
+    if (this.props.params.channelId !== newProps.params.channelId) {
+      this.props.fetchMessages(newProps.params.channelId);
+    }
     let scroll = Scroll.animateScroll;
     scroll.scrollTo(10000, {delay: 0});
   }
@@ -34,7 +38,7 @@ class MessageIndex extends React.Component {
   }
 
   render() {
-    const { messages, updateMessage, deleteMessage } = this.props;
+    const { messages, updateMessage, deleteMessage, channelId } = this.props;
     return (
       <section className="chat_active_window">
         <ul>

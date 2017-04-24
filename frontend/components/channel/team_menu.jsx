@@ -11,23 +11,22 @@ class TeamMenu extends React.Component {
 
   logoutAndRedirect(e) {
     e.preventDefault();
-    this.props.logout(this.props.currentUser)
-      .then(() => router.push('/login'));
+    this.props.logout()
+      .then(() => this.props.router.push('/login'));
   }
 
-
-  render() {
+  renderMenu() {
     return (
       <div className="team_menu">
-        <div>
-          <span>Sleek</span>
+        <div className="title-signout">
+          <span className="sleek-title">Sleek</span>
+
+          <button onClick={this.logoutAndRedirect} className="signout">
+            <FontAwesome name='sign-out' />
+          </button>
         </div>
 
-        <button className="signout">
-          <FontAwesome name='sign-out' />
-        </button>
-
-        <div>
+        <div className="current-user">
           <span>
             <FontAwesome name='circle' />
           </span>
@@ -37,6 +36,12 @@ class TeamMenu extends React.Component {
           </span>
         </div>
       </div>
+    );
+  }
+
+  render() {
+    return (
+      this.props.currentUser ? this.renderMenu() : null
     );
   }
 }

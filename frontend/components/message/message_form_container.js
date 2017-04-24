@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 
 import MessageForm from './message_form';
 import { createMessage } from '../../actions/message_actions';
+import { withRouter } from 'react-router';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.session.currentUser
+    user: state.session.currentUser,
+    channelId: ownProps.params.channelId
   };
 };
 
@@ -15,7 +17,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MessageForm);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MessageForm)
+);

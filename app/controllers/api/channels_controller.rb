@@ -13,7 +13,6 @@ class Api::ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
-    debugger
     @subscription = Subscription.create(
       user: current_user,
       channel: @channel

@@ -29,10 +29,10 @@ const Root = ({ store }) => {
       <IntlProvider locale="en">
         <Router history={ hashHistory }>
           <Route path='/' components={ App }>
-            <IndexRedirect to="/messages" />
+            <IndexRedirect to={`/messages/${window.generalChannelId}`} />
             <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
             <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-            <Route path="/messages" component={Chat} onEnter={_ensureLoggedIn} />
+            <Route path="/messages/:channelId" component={Chat} onEnter={_ensureLoggedIn} />
           </Route>
         </Router>
       </IntlProvider>

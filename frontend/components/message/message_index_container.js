@@ -3,24 +3,29 @@ import { connect } from 'react-redux';
 import MessageIndex from './message_index';
 import { selectAllMessages } from '../../selectors/message_selector';
 import { fetchMessages, deleteMessage, updateMessage } from '../../actions/message_actions';
+import { withRouter } from 'react-router';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     messages: selectAllMessages(state),
-    channel_id: 1
   };
-  // NOTE remeber grabbing channel from state
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchMessages: () => dispatch(fetchMessages()),
+    fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
     deleteMessage: id => dispatch(deleteMessage(id)),
     updateMessage: message => dispatch(updateMessage(message))
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MessageIndex);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MessageIndex)
+);
+
+
+
+// channelId: ownProps.params.channelId
