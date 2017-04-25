@@ -5,7 +5,6 @@ export const fetchChannels = () => {
   });
 };
 
-// Do I need this?
 export const fetchChannel = (id) => {
   return $.ajax({
     method: 'GET',

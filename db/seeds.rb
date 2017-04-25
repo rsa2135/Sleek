@@ -20,7 +20,9 @@ guest2 = User.create(username: 'guest2', email: 'guest2@example.com', password: 
 
 # Channels
 general = Channel.create(name: 'general', description: 'Welcome to sleek!')
+app_academy = Channel.create(name: 'app academy', description: 'Hello a/A students')
 sports = Channel.create(name: 'sports', description: 'Everything sports related')
+guest1_guest2_dm = Channel.create(name: "#{guest1.username},#{guest2.username}", is_dm: true)
 
 eli_peyton_dm = Channel.create(name: peyton.username, is_dm: true)
 # peyton_eli_dm = Channel.create(name: eli.username, is_dm: true)
@@ -31,6 +33,12 @@ ron_in_sports = Subscription.create(user: ron, channel: sports)
 
 guest1_in_general = Subscription.create(user: guest1, channel: general)
 guest2_in_general = Subscription.create(user: guest2, channel: general)
+
+guest1_in_app_academy = Subscription.create(user: guest1, channel: app_academy)
+guest2_in_app_academy = Subscription.create(user: guest2, channel: app_academy)
+
+guest1_guest2_dm_sub = Subscription.create(user: guest1, channel: guest1_guest2_dm)
+guest1_guest2_dm_sub = Subscription.create(user: guest2, channel: guest1_guest2_dm)
 
 peyton_in_general = Subscription.create(user: peyton, channel: general)
 peyton_in_sports = Subscription.create(user: peyton, channel: sports)

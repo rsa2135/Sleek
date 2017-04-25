@@ -5,10 +5,6 @@ import Scroll from 'react-scroll';
 import MessageFormContainer from './message_form_container';
 
 class MessageIndex extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.fetchMessages = this.props.fetchMessages.bind(this);
-  // }
 
   componentDidMount() {
     this.props.fetchMessages(this.props.params.channelId);
@@ -25,7 +21,6 @@ class MessageIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
     if (this.props.params.channelId !== newProps.params.channelId) {
       this.props.fetchMessages(newProps.params.channelId);
     }

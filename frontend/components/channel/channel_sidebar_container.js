@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
     subscriptions: selectAllSubscriptions(state),
-    channels: selectAllChannels(state)
+    channels: selectAllChannels(state),
   };
 };
 

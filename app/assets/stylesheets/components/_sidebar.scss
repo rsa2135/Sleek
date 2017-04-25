@@ -7,7 +7,7 @@
 .channels_sidebar {
   box-sizing: border-box;
   // display: block;
-  padding: 9px 0 0 16px;
+  padding: 9px 0 0 0;
   background-color: $slack-purpule;
   color: $channels-grey;
 }
@@ -29,6 +29,8 @@
 .sleek-title {
   font-size: 18px;
   font-weight: 900;
+  padding-left: 16px;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .fa-sign-out {
@@ -41,6 +43,7 @@
   margin-top: 2px;
   font-size: 14px;
   color: $channels-grey;
+  padding-left: 16px;
 }
 
 .current-user {
@@ -51,8 +54,9 @@
 
 .fa-circle {
   font-size: 10.5px;
-  color: $slack-green;
+  color: $circle-green;
   margin-right: 3px;
+  opacity: 1;
 }
 
 .channel-header {
@@ -61,6 +65,7 @@
   margin-top: 3px;
   margin-bottom: 3px;
   margin-left: 3px;
+  padding-left: 13px;
 }
 
 .channel_count {
@@ -70,17 +75,29 @@
 }
 
 .channel-li {
-  padding: 0 0 0 7px;
+  padding: 0 0 0 0px;
+
+}
+
+.status {
+  margin-left: 16px;
+  font-weight: 400;
+  width: 20px;
+  // margin: 0 auto;
+  // display: flex;
+  text-align: center;
 }
 
 .channel-li a {
+
   display: flex;
   color: $channels-grey;
+  height: 24px;
+
 }
 
-.channel-a span {
-  display: block;
-  height: 24px;
+.channel-name {
+  // display: inline-block;
 }
 
 .selected-channel {

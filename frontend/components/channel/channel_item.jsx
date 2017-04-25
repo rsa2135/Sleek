@@ -49,15 +49,17 @@ class ChannelItem extends React.Component {
   }
 
   handleDmDelete(e) {
-    e.preventDefault();
-    this.props.deleteChannel(this.props.channel.id);
+    if (e !== undefined) {
+      e.preventDefault();
+      this.props.deleteChannel(this.props.channel.id);
+    }
   }
 
   renderDmDeleteButton() {
     let {subscription} = this.props;
-    if (subscription.is_dm === true) {
+    if (subscription && (subscription.is_dm === true)) {
       return (
-        <button onClick={handleDmDelete()}>
+        <button className="remove-dm" onClick={this.handleDmDelete()}>
           <FontAwesome name='times-circle-o' />
         </button>
       );
