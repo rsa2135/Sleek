@@ -3,14 +3,13 @@
 
 // need to embed custom fonts!
 
-// @font-face {
-//   font-family: "Lato";
-//   src: url(/assets/Lato-Bol.ttf) format("truetype"),
-//        url(/assets/Lato-Reg.ttf) format("truetype"),
-//        url(/assets/Lato-RegIta.ttf) format("truetype")
-// }
-//
-
+@font-face {
+  font-family: 'Slack-Lato';
+  src: font-url('slack-icons-Regular.ttf') format('truetype');
+}
 
 
 $lato: 'Lato', sans-serif;
+// $slack-lato: 'Slack-Lato', sans-serif;
+
+// ./'slack....'

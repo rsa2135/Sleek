@@ -5,6 +5,7 @@
 
 
 .channels_sidebar {
+  // position: fixed;
   box-sizing: border-box;
   // display: block;
   padding: 9px 0 0 0;
@@ -13,7 +14,7 @@
 }
 
 .team_menu {
-  width: 220px;
+  max-width: 220px;
   display: block;
   margin-bottom: 20px;
 }
@@ -52,58 +53,196 @@
   color: $channels-grey;
 }
 
+.current-user-status {
+  margin-left: -4px;
+  display: inline-block;
+  width: 20px;
+  height: 21px;
+  text-align: center;
+}
+
+.current-user-status span {
+  font-size: 10.5px;
+  color: $circle-green;
+  // margin-right: 3px;
+  opacity: 1;
+}
+
 .fa-circle {
   font-size: 10.5px;
   color: $circle-green;
+  // margin-right: 3px;
+  opacity: 1;
+}
+
+.fa-circle-o {
+  font-size: 10.5px;
   margin-right: 3px;
   opacity: 1;
 }
 
+.channels-wrapper {
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
 .channel-header {
+  vertical-align: middle;
+  width: 208px;
+  margin-right: 12px;
+}
+
+.channel-header-text {
   text-transform: uppercase;
   font-size: 12.8px;
   margin-top: 3px;
-  margin-bottom: 3px;
+  // margin-bottom: 3px;
   margin-left: 3px;
   padding-left: 13px;
+  height: 20px;
+  vertical-align: middle;
+  display: flex;
+  font-weight: 600;
 }
 
 .channel_count {
   opacity: 0.5;
   margin-left: 3px;
   color: $channels-grey;
+  display: flex;
+  vertical-align: middle;
 }
 
 .channel-li {
   padding: 0 0 0 0px;
-
+  width: 203px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  // width: 100%;
 }
 
 .status {
   margin-left: 16px;
   font-weight: 400;
-  width: 20px;
-  // margin: 0 auto;
-  // display: flex;
+  width: 16px;
   text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 24px;
+  opacity: 0.70;
+  font-family: $lato;
+  // margin-top: -3px;
+  // margin-left: -2;
+  // margin-right: -2;
 }
 
 .channel-li a {
-
   display: flex;
   color: $channels-grey;
   height: 24px;
-
+  width: 100%
 }
 
+
 .channel-name {
-  // display: inline-block;
+  // margin-top: -3px;
 }
 
 .selected-channel {
   background-color: $slack-dark-green;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .selected-channel .channel-name{
   color: $white;
+}
+
+.selected-channel .status{
+  color: $white;
+}
+
+h2 {
+  display: flex;
+  height: 24px;
+  width: 165px;
+  vertical-align: middle;
+  line-height: 26px;
+  justify-content: space-between;
+}
+
+.status .fa-circle-o {
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+.fa-plus-circle {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.link-to-channel:hover{
+  display: flex;
+  color: $channels-grey;
+  height: 24px;
+  background-color: $hover-purpurle;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.selected-channel:hover{
+  background-color: $slack-dark-green;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.channel-li {
+  position: relative;
+}
+
+.fa-times-circle-o {
+  // z-index: -100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 3.5px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.remove-dm:hover{
+  z-index: 1;
+}
+
+.remove-dm {
+  z-index: -1;
+}
+
+// .fa-times-circle-o {
+//   display: none;
+// }
+
+.selected-channel + button {
+  color: $white;
+}
+
+.selected-channel:hover + button {
+  z-index: 1;
+  right: 0;
+  top: 0;
+  margin-top: 3.5px;
+  // margin-right: 5px;
+  font-size: 16px;
+}
+
+.link-to-channel:hover + button {
+  z-index: 1;
+  background-color: $channels-grey;
+  right: 0;
+  top: 0;
+  margin-top: 3.5px;
+  // margin-right: 5px;
+  font-size: 16px;
 }

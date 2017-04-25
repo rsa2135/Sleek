@@ -79,11 +79,11 @@ class ChannelItem extends React.Component {
     let { subscription } = this.props;
     return(
       <li className="channel-li">
-        <Link to={`messages/${subscription.channel_id}`} activeClassName="selected-channel" >
+        <Link to={`messages/${subscription.channel_id}`} className="link-to-channel" activeClassName="selected-channel" >
           {this.renderStatus()}
           {this.props.currentUser ? this.renderChannel() : null }
-          {this.renderDmDeleteButton()}
         </Link>
+        {this.renderDmDeleteButton()}
       </li>
     );
   }

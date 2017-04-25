@@ -2,7 +2,7 @@ class Api::ChannelsController < ApplicationController
   before_filter :require_logged_in
 
   def index
-    @channels = Channel.all
+    @channels = Channel.includes(:users).all
     render :index
   end
 

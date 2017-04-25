@@ -13,7 +13,7 @@ const filterBySection = (props) => {
 
 const ChannelsWrapper = (props) => {
   return(
-    <div className="channels_wrapper">
+    <div className="channels-wrapper">
       <ChannelHeader channelSection={props.channelSection} channelCount={props.channelCount} />
       <ChannelIndex channelSection={props.channelSection} subscriptions={filterBySection(props)} />
     </div>
