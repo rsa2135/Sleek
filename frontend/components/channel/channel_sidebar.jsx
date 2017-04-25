@@ -6,13 +6,12 @@ import ChannelsWrapper from './channels_wrapper';
 class ChannelSidebar extends React.Component {
   constructor(props) {
     super(props);
-    // props.fetchUserSubscriptions(props.currentUser.id);
-    // props.fetchChannels();
   }
 
   componentDidMount() {
     this.props.fetchUserSubscriptions(this.props.currentUser.id);
     this.props.fetchChannels();
+    this.props.fetchUsers();
   }
 
   render() {

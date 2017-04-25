@@ -1,11 +1,20 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import ChannelsModal from '../modal/channels_modal';
+
+const handleClick = (props) => {
+  return (e) => {
+    e.preventDefault();
+    props.openModal(<ChannelsModal />);
+  };
+};
 
 const renderAdditionalHeaderInfo = (props) => {
+  debugger
   if (props.channelSection === "channel") {
     return (
       <h2 className="channel-header">
-        <button className="channel-header-text">
+        <button className="channel-header-text" onClick={handleClick(props)}>
           {`${props.channelSection}s`}
           <span className="channel_count">
             ({props.channelCount})
@@ -17,7 +26,7 @@ const renderAdditionalHeaderInfo = (props) => {
   } else {
     return (
       <h2 className="channel-header">
-        <button className="channel-header-text">
+        <button className="channel-header-text" onClick={handleClick(props)}>
           {`${props.channelSection}s`}
         </button>
         <button className="add_dm">
