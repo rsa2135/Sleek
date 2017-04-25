@@ -7,11 +7,10 @@ import { closeModal } from '../actions/modal_actions';
 const Modal = (props) => {
   return (
     <div className={props.visible ? 'modal-screen' : 'hidden'} >
-      <div className='modal-content'>
-        { props.content }
-      </div>
+      { props.content }
       <div className="close-modal" onClick={ props.closeModal }>
-        close me
+        <i>X</i>
+        <span>close</span>
       </div>
     </div>
   );

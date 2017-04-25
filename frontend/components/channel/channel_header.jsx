@@ -10,7 +10,6 @@ const handleClick = (props) => {
 };
 
 const renderAdditionalHeaderInfo = (props) => {
-  debugger
   if (props.channelSection === "channel") {
     return (
       <h2 className="channel-header">

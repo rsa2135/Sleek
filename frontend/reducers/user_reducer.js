@@ -9,7 +9,6 @@ const UserReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-    debugger
       return action.users;
 
     case RECIEVE_USER:

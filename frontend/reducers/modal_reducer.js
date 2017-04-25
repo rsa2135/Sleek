@@ -10,13 +10,11 @@ const _defaultState = {
 
 const ModalReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
-  // debugger
   switch (action.type) {
     case CLOSE_MODAL:
       return _defaultState;
 
     case OPEN_MODAL:
-    // debugger
       return {content: action.content, visible: true};
 
     default:
