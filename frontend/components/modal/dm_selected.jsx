@@ -2,23 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectAllChannels } from '../../selectors/channel_selector';
 import { selectAllUsers } from '../../selectors/user_selector';
-import { removePendingUser } from '../../actions/pending_dms_actions';
-import { receiveUser } from '../../actions/user_actions';
+import { removePendingUser, clearList } from '../../actions/pending_dms_actions';
+import { receiveUser, fetchUsers } from '../../actions/user_actions';
+import { createChannel } from '../../actions/channel_actions';
 
 class DmsSelected extends React.Component {
   constructor(props) {
     super(props);
     this.deselectUser = this.deselectUser.bind(this);
+    this.startDm = this.startDm.bind(this);
   }
 
   deselectUser(user) {
     return e => {
-      console.log(this || "FUCK")
       e.preventDefault();
       this.props.removePendingUser(user);
-      debugger
       this.props.receiveUser(user);
     };
+  }
+
+  startDm() {
+    debugger
+    this.props.createChannel(this.props.pendingDms);
+    this.props.clearList();
+    this.props.fetchUsers();
   }
 
   render() {
@@ -32,6 +39,7 @@ class DmsSelected extends React.Component {
             <i onClick={this.deselectUser(dm)}>x</i>
           </div>)
         }
+        <div onClick={this.startDm}>Go</div>
       </div>
     );
   }
@@ -46,11 +54,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   removePendingUser: user => dispatch(removePendingUser(user)),
   receiveUser: user => dispatch(receiveUser(user)),
+  createChannel: channel => dispatch(createChannel(channel)),
+  fetchUsers: () => dispatch(fetchUsers()),
+  clearList: () => dispatch(clearList()),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(DmsSelected);
-
-// onClick={this.props.updateState(dm)}

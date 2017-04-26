@@ -16,7 +16,6 @@ const propIsUserOrChannel = (props) => {
 };
 
 const ChannelModalItem = (props) => {
-  debugger
   return(
     <li className="modal-channel-li"
       onClick={ props.channel ? props.onChannelClick : props.selectUser }>

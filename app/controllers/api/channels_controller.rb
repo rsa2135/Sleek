@@ -12,8 +12,20 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    @subscription = Subscription.create(
+    if params[:dms]
+      dm_name = ""
+      params[:dms].each do |dm|
+        puts "#{params[:dms][dm][:username]}"
+        dm_name += "#{params[:dms][dm][:username]},"
+      end
+      dm_name = dm_name[0..-2]
+      @channel = Channel.new(name: dm_name, is_dm: true, creator:current_user)
+    else
+      @channel = Channel.new(channel_params)
+      @channel.creator = current_user
+    end
+    debugger
+    @subscription = Subscription.new(
       user: current_user,
       channel: @channel
     )

@@ -6,6 +6,7 @@ import Root from './components/root';
 
 import { addUser, removeUser, clearList } from './actions/pending_dms_actions';
 import { unsubscribe } from './actions/subscription_actions';
+import { createChannel } from './actions/channel_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.removeUser = removeUser;
   window.clearList = clearList;
   window.unsubscribe = unsubscribe;
+  window.createChannel = createChannel;
 
   let store;
   if (window.currentUser) {

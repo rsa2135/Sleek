@@ -12,11 +12,18 @@ export const fetchChannel = (id) => {
   });
 };
 
-export const createChannel = (channel, user) => {
+export const createChannel = (channel) => {
+  debugger
+  if (Array.isArray(channel)) {
+    channel = {dms: channel};
+  } else {
+    channel = {channel: channel};
+  }
+  debugger
   return $.ajax({
     method: 'POST',
     url: '/api/channels/',
-    data: channel, user
+    data: channel
   });
 };
 
