@@ -2,47 +2,49 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { selectAllChannels } from '../../selectors/channel_selector';
+import { selectAllUsers } from '../../selectors/user_selector';
+import { closeModal } from '../../actions/modal_actions';
 import ChannelModalItem from './channel_modal_item';
-
+import ChannelModalHeader from './channel_modal_header';
+import ChannelModalList from './channel_modal_list';
 
 const ChannelsModal = (props) => {
   debugger
   return(
     <div className='modal-content'>
-      <div className="channels-modal">
-        <h1 className="channels-modal-header">
-          Browse all {props.channels.length} channels
-        </h1>
 
-        <button className="new-channel">
-          New channel
-        </button>
-      </div>
+      <ChannelModalHeader
+        channels={props.channels}
+        channelSection={props.channelSection}
+        />
 
       <div className="future-search-functionality">
-
       </div>
 
-      <div className="channel-list">
-        <div className="channel-list-header">
-          Channels you can join
-        </div>
+      <ChannelModalList
+        channels={props.channels}
+        channelSection={props.channelSection}
+        closeModal={props.closeModal}
+        />
 
-        <ul>
-          {props.channels.map(channel => <ChannelModalItem channel={channel} key={channel.id} />)}
-        </ul>
-      </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    channels: selectAllChannels(state)
+    channels: selectAllChannels(state),
+    users: selectAllUsers(state)
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    closeModal: () => dispatch(closeModal())
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ChannelsModal);

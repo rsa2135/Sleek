@@ -5,7 +5,7 @@ import ChannelsModal from '../modal/channels_modal';
 const handleClick = (props) => {
   return (e) => {
     e.preventDefault();
-    props.openModal(<ChannelsModal />);
+    props.openModal(<ChannelsModal channelSection={props.channelSection} />);
   };
 };
 

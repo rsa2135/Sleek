@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import {FormattedDate} from 'react-intl';
 import FontAwesome from 'react-fontawesome';
 
+const handleClick = (props) => {
+  return e => {
+    e.preventDefault();
+    props.closeModal();
+    hashHistory.push(`messages/${props.channel.id}`);
+  };
+};
+
 const ChannelModalItem = (props) => {
-  debugger
   return(
-    <li className="modal-channel-li">
-      <Link to={`messages/${props.channel.id}`} className="link-to-modal-channel" activeClassName="selected-modal-channel" >
+    <li className="modal-channel-li" onClick={handleClick(props)}>
         <div className="channel-name-row-modal">
           <span className="status-modal">
             #
@@ -30,11 +36,14 @@ const ChannelModalItem = (props) => {
             </span>
         </div>
 
-        <div className="memeber-count">
+        <div className="member-count">
           <FontAwesome name='user-o' />
           <span className="count">{props.channel.count}</span>
         </div>
-      </Link>
+
+        <div className="purpose">
+          {props.channel.description}
+        </div>
     </li>
   );
 };
