@@ -12,18 +12,17 @@ export const fetchChannelSubscritpions = (channel_id) => {
   });
 };
 
-
-// NOTE: to revisit logic of creating and deleteing a subscription
-export const createSubscription = () => {
+export const subscribe = (channel_id) => {
   return $.ajax({
     method: 'POST',
-    url: ''
+    url: '/api/subscriptions',
+    data: {channel_id}
   });
 };
 
-export const deleteSubscription = () => {
+export const unsubscribe = (subscription_id) => {
   return $.ajax({
     method: 'DELETE',
-    url: ''
+    url: `/api/subscriptions/${subscription_id}`
   });
 };

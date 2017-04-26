@@ -182,6 +182,14 @@
   color: $modal-li-grey;
 }
 
+.status-modal-user {
+  margin-right: 15px;
+}
+
+.channel-name-row-modal {
+  display: flex
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }

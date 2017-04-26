@@ -7,9 +7,10 @@ import { closeModal } from '../../actions/modal_actions';
 import ChannelModalItem from './channel_modal_item';
 import ChannelModalHeader from './channel_modal_header';
 import ChannelModalList from './channel_modal_list';
+import DmsSelected from './dm_selected';
+
 
 const ChannelsModal = (props) => {
-  debugger
   return(
     <div className='modal-content'>
 
@@ -18,11 +19,11 @@ const ChannelsModal = (props) => {
         channelSection={props.channelSection}
         />
 
-      <div className="future-search-functionality">
-      </div>
+      <DmsSelected />
 
       <ChannelModalList
         channels={props.channels}
+        users={props.users}
         channelSection={props.channelSection}
         closeModal={props.closeModal}
         />

@@ -16,9 +16,8 @@ class Message < ApplicationRecord
   belongs_to :author,
     class_name: :User,
     primary_key: :id,
-    foreign_key: :author_id,
-    dependent: :destroy
+    foreign_key: :author_id
 
-  belongs_to :channel, dependent: :destroy
+  belongs_to :channel
 
 end

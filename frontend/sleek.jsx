@@ -4,18 +4,15 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { fetchChannels, createChannel, updateChannel, deleteChannel } from './actions/channel_actions';
-import { fetchUserSubscriptions, fetchChannelSubscriptions } from './actions/subscription_actions';
+import { addUser, removeUser, clearList } from './actions/pending_dms_actions';
+import { unsubscribe } from './actions/subscription_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  window.fetchChannels = fetchChannels;
-  window.createChannel = createChannel;
-  window.updateChannel = updateChannel;
-  window.deleteChannel = deleteChannel;
-
-  window.fetchUserSubscriptions = fetchUserSubscriptions;
-  window.fetchChannelSubscriptions = fetchChannelSubscriptions;
+  window.addUser = addUser;
+  window.removeUser = removeUser;
+  window.clearList = clearList;
+  window.unsubscribe = unsubscribe;
 
   let store;
   if (window.currentUser) {

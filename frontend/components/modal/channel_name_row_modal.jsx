@@ -2,26 +2,24 @@ import React from 'react';
 
 
 const statusOrAvatar = (props) => {
-  let item;
-  if (props.channel.is_dm === false) {
-    item = <span className="status-modal">
+  if (props.channel) {
+    return (<span className="status-modal">
       #
-    </span>;
+    </span>);
   } else {
-    item = <img className="avatar" src={window.images.default_avatar} />;
+    return (<span className="status-modal-user">
+            <img className="avatar" src={window.images.default_avatar} />
+          </span>
+    );
   }
-
-  return (
-    {item}
-  );
 };
 
 const userOrChannel = (props) => {
   let type;
-  if (props.channel.is_dm === false) {
+  if (props.channel) {
     type = props.channel.name;
   } else {
-    type = props.user.name;
+    type = props.user.username;
   }
 
   return (
@@ -31,15 +29,13 @@ const userOrChannel = (props) => {
   );
 };
 
-
-
 const ChannelNameRowModal = (props) => {
-  render (
+  return (
     <div className="channel-name-row-modal">
-      {statusOrAvatar()}
-      {userOrChannel()}
+      {statusOrAvatar(props)}
+      {userOrChannel(props)}
     </div>
   );
-
 };
+
 export default ChannelNameRowModal;

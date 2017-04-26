@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     resources :channels, except: [:edit, :new] do
       resources :subscriptions, only: [:index]
     end
+
+    resources :subscriptions, only: [:create, :destroy]
+
   end
 end

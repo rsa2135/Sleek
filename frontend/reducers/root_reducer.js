@@ -7,6 +7,7 @@ import CurrentChannelReducer from './current_channel_reducer';
 import SubscriptionReducer from './subscription_reducer';
 import UserReducer from './user_reducer';
 import ModalReducer from './modal_reducer';
+import PendingDmsReducer from './pending_dm_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -14,7 +15,8 @@ const RootReducer = combineReducers({
   channels: ChannelReducer,
   subscriptions: SubscriptionReducer,
   users: UserReducer,
-  modal: ModalReducer
+  modal: ModalReducer,
+  pendingDms: PendingDmsReducer,
 });
 
 export default RootReducer;
