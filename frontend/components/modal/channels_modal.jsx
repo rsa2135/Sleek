@@ -6,6 +6,7 @@ import ChannelModalItem from './channel_modal_item';
 
 
 const ChannelsModal = (props) => {
+  debugger
   return(
     <div className='modal-content'>
       <div className="channels-modal">
@@ -24,7 +25,7 @@ const ChannelsModal = (props) => {
 
       <div className="channel-list">
         <div className="channel-list-header">
-          Available channels
+          Channels you can join
         </div>
 
         <ul>

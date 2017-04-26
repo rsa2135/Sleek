@@ -19,12 +19,12 @@ guest1 = User.create(username: 'guest1', email: 'guest1@example.com', password: 
 guest2 = User.create(username: 'guest2', email: 'guest2@example.com', password: 'password')
 
 # Channels
-general = Channel.create(name: 'general', description: 'Welcome to sleek!')
-app_academy = Channel.create(name: 'app academy', description: 'Hello a/A students')
-sports = Channel.create(name: 'sports', description: 'Everything sports related')
-guest1_guest2_dm = Channel.create(name: "#{guest1.username},#{guest2.username}", is_dm: true)
+general = Channel.create(name: 'general', description: 'Welcome to sleek!', creator: ron)
+app_academy = Channel.create(name: 'app academy', description: 'Hello a/A students', creator: ron)
+sports = Channel.create(name: 'sports', description: 'Everything sports related', creator: peyton)
+guest1_guest2_dm = Channel.create(name: "#{guest1.username},#{guest2.username}", is_dm: true, creator: guest1)
 
-eli_peyton_dm = Channel.create(name: peyton.username, is_dm: true)
+eli_peyton_dm = Channel.create(name: peyton.username, is_dm: true, creator: eli)
 # peyton_eli_dm = Channel.create(name: eli.username, is_dm: true)
 
 # Subscriptions

@@ -3,16 +3,16 @@
 }
 
 .channels-modal {
-  padding-top: 96px;
+  padding-top: 152px;
   // background-color: pink;
   width: 100%;
-  height: 100%;
+  // height: 100%;
 }
 
 .modal-screen{
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   z-index: 99;
   position: absolute;
   top: 0;
@@ -38,6 +38,10 @@
   height: 64px;
 }
 
+.close-modal i {
+  font-size: 20px;
+}
+
 .close-modal:hover {
   border-radius: 50%;
 
@@ -50,4 +54,100 @@
 .close-modal span, i {
   display: block;
   text-align: center;
+}
+
+.channels-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 640px;
+}
+
+.channels-modal-header {
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 900;
+  margin-bottom: 32px;
+  // vertical-align: top;
+}
+
+.new-channel {
+  padding: 8px 14px 9px 14px;
+  font-size: 15px;
+  background-color: $slack-green;
+  color: $white;
+  font-weight: 900;
+  line-height: 19.2px;
+  border-radius: 4px;
+  height: 36px;
+  margin-bottom: 32px;
+}
+
+.channel-list-header {
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
+  color: $modal-grey;
+}
+
+.channel-list-header {
+  height: 35px;
+  width: 595px;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 35px;
+  color: $modal-grey;
+  font-weight: 700;
+}
+
+.modal-channel-li {
+  padding: 12px 80px 12px 10px;
+  border-top: 1px solid $border-mid-grey;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $text-grey;
+  position: relative;
+}
+
+.status-modal {
+  width: 14px;
+  height: 19px;
+  font-weight: 400;
+  font-size: 15px;
+  display: inline-block;
+  color: $modal-li-grey;
+  opacity: 0.9;
+}
+
+.modal-channel-name {
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.created-information-modal {
+  font-style: italic;
+  color: $modal-li-grey;
+}
+
+.creator-id {
+  color: $blackish;
+}
+
+.memeber-count {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  width: 25px;
+  font-size: 14px;
+
+
+}
+
+.user-o {
+  height: 22px;
 }

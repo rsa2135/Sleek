@@ -9,6 +9,7 @@
 #  is_dm       :boolean          default("false")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  creator_id  :integer          not null
 #
 
 require 'test_helper'

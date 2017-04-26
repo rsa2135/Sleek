@@ -9,15 +9,23 @@
 #  is_dm       :boolean          default("false")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  creator_id  :integer          not null
 #
 
 class Channel < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :creator, presence: true
   validates :private, :is_dm, inclusion: { in: [true, false] }
 
   has_many :subscriptions, inverse_of: :channel
+
   has_many :messages
+
   has_many :users,
     through: :subscriptions,
     source: :user
+
+  belongs_to :creator,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :creator_id
 end
