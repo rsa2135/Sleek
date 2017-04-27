@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
 			});
     }
 	}
-	
+
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
@@ -122,7 +122,7 @@ class SessionForm extends React.Component {
 												and
 												<strong> password. </strong>
 											</p>;
-			redirectMessage = "Already have an account?";
+			redirectMessage = "Don't have an account?";
 			redirectLink = <Link to="/signup" className="userStatus">Sign up</Link>;
 			submitValue = "Sign in";
 		} else {
