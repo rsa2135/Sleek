@@ -1,0 +1,221 @@
+.hidden {
+ display: none;
+}
+
+.modal-screen{
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $white;
+}
+
+.create-channel-modal-content {
+  padding-top: 105px;
+  width: 640px;
+}
+
+.create-channel-header {
+  margin-bottom: 16px;
+  font-size: 34px;
+  color: $blackish;
+  font-weight: bold;
+}
+
+.create-channel-blurb {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: $modal-li-grey;
+  line-height: 20px;
+}
+
+.privacy-setting-container {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.privacy-switch {
+  display: flex;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.privacy-switch input {
+  display:none;
+}
+
+.switch-text-public {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: block;
+  // text-align: center;
+  width: 100%;
+  line-height: 27px;
+  padding-left: 20px;
+}
+
+.switch-text-private {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: block;
+  // text-align: center;
+  width: 100%;
+  line-height: 27px;
+  padding-left: 33px;
+}
+
+/* The slider */
+.slider {
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $slack-green;
+  -webkit-transition: .3s;
+  transition: .3s;
+  width: 94px;
+  height: 27px;
+}
+
+.slider:before {
+  border-radius: 34px;
+  position: absolute;
+  content: "";
+  height: 23px;
+  width: 23px;
+  right: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.privacy-blurb {
+  color: $text-grey;
+  line-height: 24px;
+  padding-left: 43px;
+
+}
+
+input:checked + .slider {
+  background-color: $slack-orange;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-67px);
+  -ms-transform: translateX(-67px);
+  transform: translateX(-67px);
+}
+
+.create-form-container label, p, span, input {
+  display: block;
+}
+
+// .name-reminder{
+//   display: inline;
+// }
+
+.channel-name-title {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 24px;
+  border-bottom: 4px;
+  color: $text-grey;
+  height: 24px;
+}
+
+.channel-name-title span {
+  display: inline;
+  color: $slack-text-orange;
+  font-style: italic;
+  margin-left: 8px;
+}
+
+.create-form label input {
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid $border-light-grey;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.create-form label input:hover {
+  border: 1px solid #2780F8;
+}
+
+.create-form label input:focus {
+  border: 1px solid #2780F8;
+}
+
+.create-form label span:last-child {
+  font-size: .8rem;
+  line-height: 16px;
+  color: $modal-li-grey;
+}
+
+.channel-purpose-label {
+  margin-top: 20px;
+}
+
+.channel-description {
+  font-weight: 400;
+  display: inline-block;
+  line-height: 24px;
+  border-bottom: 4px;
+  color: $text-grey;
+  height: 24px;
+}
+
+.channel-description > strong  {
+  font-weight: 700;
+}
+
+.submission {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-creation {
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin-right: 10px;
+  border: 1px solid $border-light-grey;
+  border-radius: 4px;
+  height: 49px;
+  padding: 0px 18px;
+  color: $text-grey;
+  font-weight: 700;
+}
+
+.submit-channel {
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid $border-light-grey;
+  border-radius: 4px;
+  padding: 0px 18px;
+  height: 49px;
+  font-weight: 700;
+  color: $white;
+  background-color: $submit-grey;
+}

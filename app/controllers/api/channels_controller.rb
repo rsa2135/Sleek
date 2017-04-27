@@ -7,20 +7,19 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
-    @channel = Channel.find(params[:id])
+    @channel = Channel.includes(:users).find(params[:id])
     render :show
   end
 
   def create
     if params[:dms]
-      dm_name = ""
+      dm_name_arr = []
       @users = []
       params[:dms].each do |dm|
-        puts "#{params[:dms][dm][:username]}"
-        dm_name += "#{params[:dms][dm][:username]},"
+        dm_name_arr << params[:dms][dm][:username]
         @users.push(User.find(params[:dms][dm][:id]))
       end
-      dm_name = dm_name[0..-2]
+      dm_name = dm_name_arr.sort.join(', ')
       @channel = Channel.new(name: dm_name, is_dm: true, creator:current_user)
     else
       @channel = Channel.new(channel_params)

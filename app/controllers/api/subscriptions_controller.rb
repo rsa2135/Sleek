@@ -9,7 +9,7 @@ class Api::SubscriptionsController < ApplicationController
     else
       @subscriptions = Subscription
         .where(channel_id: params[:channel_id])
-        .includes(:user)
+        .includes(:channel)
     end
 
     render :index

@@ -1,0 +1,84 @@
+// * {
+//   border: 1px solid red !important;
+// }
+
+.nav-bar {
+  background-color: $white;
+  border-bottom: 1px solid $border-mid-grey;
+}
+
+.channel_name_container {
+  font-size: 18px;
+  color: $blackish;
+  font-weight: 900;
+  padding-left: 21px;
+  padding-top: .7rem;
+  // display: block;
+
+}
+
+.channel-info-section-navbar {
+  display: flex;
+}
+
+.channel-info-and-name {
+  padding-bottom: 8px;
+  width: 745px;
+}
+.channel-info-section-navbar {
+  display: flex;
+}
+
+.channel_header_info {
+  display: flex;
+  padding-left: 21px;
+  margin-top: 5px;
+  color: $modal-li-grey;
+  font-size: 13px;
+}
+
+
+.count {
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+  border-right: 1px solid $modal-li-grey;
+
+}
+
+.channel_header_info navbar-member-count {
+  margin-right: 0;
+}
+
+.navbar-member-count {
+  display: flex;
+}
+
+.channel_name_container {
+  display: inline-block;
+
+}
+
+.channel-settings-container{
+  display: inline;
+  // width: 32px;
+  // height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.gear-dropdown-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-cog {
+  font-size: 24px;
+  color: $modal-li-grey;
+}
+
+.navbar-channel-description {
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+}

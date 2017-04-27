@@ -31,7 +31,7 @@ class TeamMenu extends React.Component {
             <FontAwesome name='circle' />
           </span>
 
-          <span>
+          <span className="current-user-sidebar">
             {this.props.currentUser.username}
           </span>
         </div>

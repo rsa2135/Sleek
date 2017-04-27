@@ -14,10 +14,12 @@ class ChannelItem extends React.Component {
   }
 
   renderChannel() {
-    let {subscription, currentUser} = this.props;
-    if (currentUser.channel_id === subscription.current_channel) {
-      return(
-        <span className="channel-name">{subscription.channel_name}</span>
+    // debugger
+    let {subscription} = this.props;
+    if (subscription.is_dm === true) {
+      let channel = subscription.users.filter(user => user !== currentUser.username).join(', ');
+      return (
+        <span className="dm-name">{channel}</span>
       );
     } else {
       return (
@@ -84,7 +86,7 @@ class ChannelItem extends React.Component {
       <li className="channel-li">
         <Link to={`messages/${subscription.channel_id}`} className="link-to-channel" activeClassName="selected-channel" >
           {this.renderStatus()}
-          {this.props.currentUser ? this.renderChannel() : null }
+          {this.renderChannel()}
         </Link>
         {this.renderDmDeleteButton()}
       </li>

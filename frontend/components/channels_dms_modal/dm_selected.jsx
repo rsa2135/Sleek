@@ -5,6 +5,8 @@ import { selectAllUsers } from '../../selectors/user_selector';
 import { removePendingUser, clearList } from '../../actions/pending_dms_actions';
 import { receiveUser, fetchUsers } from '../../actions/user_actions';
 import { createChannel } from '../../actions/channel_actions';
+import { fetchUserSubscriptions } from '../../actions/subscription_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 class DmsSelected extends React.Component {
   constructor(props) {
@@ -22,9 +24,12 @@ class DmsSelected extends React.Component {
   }
 
   startDm() {
-    this.props.createChannel(this.props.pendingDms);
+    this.props.createChannel(this.props.pendingDms)
+      .then(() => this.props.fetchUserSubscriptions(currentUser.id))
+      .then(() => this.props.fetchUsers());
     this.props.clearList();
-    this.props.fetchUsers();
+    this.props.closeModal();
+
   }
 
   render() {
@@ -47,6 +52,7 @@ const mapStateToProps = (state) => ({
   pendingDms: state.pendingDms,
   channels: selectAllChannels(state),
   users: selectAllUsers(state),
+  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -55,6 +61,8 @@ const mapDispatchToProps = (dispatch) => ({
   createChannel: channel => dispatch(createChannel(channel)),
   fetchUsers: () => dispatch(fetchUsers()),
   clearList: () => dispatch(clearList()),
+  fetchUserSubscriptions: (user_id) => dispatch(fetchUserSubscriptions(user_id)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(

@@ -39,7 +39,7 @@ const renderAdditionalHeaderInfo = (props) => {
         <button className="channel-header-text" onClick={HandleShowChannels(props)}>
           {`${props.channelSection}s`}
         </button>
-        <button className="add_dm">
+        <button className="add_dm" onClick={HandleShowChannels(props)}>
           <FontAwesome name='plus-circle' />
         </button>
       </h2>

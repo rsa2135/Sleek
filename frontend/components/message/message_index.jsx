@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import MessageItem from './message_item';
 import Scroll from 'react-scroll';
 import MessageFormContainer from './message_form_container';
+import NavbarMain from '../navbar/navbar_main';
 
 class MessageIndex extends React.Component {
 
@@ -36,6 +37,7 @@ class MessageIndex extends React.Component {
     const { messages, updateMessage, deleteMessage, channelId } = this.props;
     return (
       <section className="chat_active_window">
+        <NavbarMain />
         <ul>
           {messages.map((message) => <MessageItem
                                         message={message}
