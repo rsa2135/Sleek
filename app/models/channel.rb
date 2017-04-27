@@ -22,7 +22,8 @@ class Channel < ApplicationRecord
 
   has_many :users,
     through: :subscriptions,
-    source: :user
+    source: :user,
+    dependent: :destroy
 
   belongs_to :creator,
     class_name: :User,

@@ -8,6 +8,7 @@ import { openModal } from '../../actions/modal_actions';
 class ChannelsWrapper extends React.Component {
 
   filterBySection() {
+    debugger
     if (this.props.channelSection === "channel")
     return this.props.subscriptions.filter(subscription => (subscription.is_dm === false));
     else {

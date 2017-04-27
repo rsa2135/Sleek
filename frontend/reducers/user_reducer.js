@@ -7,16 +7,19 @@ const _defaultState = {};
 
 const UserReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
+  let newState;
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      return action.users;
+      newState = action.users;
+      delete newState[currentUser.id];
+      return newState;
 
     case RECEIVE_USER:
-    debugger
+
       return merge({}, oldState, {[action.user.id]: action.user});
 
     case REMOVE_USER:
-      let newState = merge({}, oldState);
+      newState = merge({}, oldState);
       delete newState[action.user.id];
       return newState;
 

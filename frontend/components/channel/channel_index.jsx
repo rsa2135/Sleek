@@ -5,7 +5,10 @@ import ChannelItem from './channel_item';
 const ChannelIndex = (props) => {
   return(
     <ul>
-      {props.subscriptions.map(subscription => <ChannelItem subscription={subscription} key={subscription.id} />)}
+      {props.subscriptions.map(subscription =>
+        <ChannelItem
+          subscription={subscription}
+          key={subscription.id} />)}
     </ul>
   );
 };

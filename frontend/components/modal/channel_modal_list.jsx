@@ -18,8 +18,6 @@ class ChannelModalList extends React.Component {
 
     this.onChannelClick = this.onChannelClick.bind(this);
     this.selectUser = this.selectUser.bind(this);
-    // this.deselectUser = this.deselectUser.bind(this);
-    // this.updateState = this.updateState.bind(this);
   }
 
   listHeader() {
@@ -39,7 +37,6 @@ class ChannelModalList extends React.Component {
 
   onChannelClick(channel) {
     return e => {
-      debugger
       e.preventDefault();
       let { subscriptions } = this.props;
       let subscriptionsIds = subscriptions.map(subscription => subscription.channel_id);
@@ -58,7 +55,6 @@ class ChannelModalList extends React.Component {
   selectUser(user) {
     return e => {
       e.preventDefault();
-      debugger
       this.props.addPendingUser(user);
       this.props.removeUser(user);
     };
@@ -83,7 +79,6 @@ class ChannelModalList extends React.Component {
       );
 
     } else {
-      debugger
       return (
         <div className="scroller">
           <ul>
@@ -130,5 +125,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ChannelModalList);
-
-// updateState={this.updateState(user)}

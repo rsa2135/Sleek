@@ -11,6 +11,7 @@ import { selectAllUsers } from '../../selectors/user_selector';
 
 
 const mapStateToProps = (state) => {
+  debugger
   return {
     currentUser: state.session.currentUser,
     subscriptions: selectAllSubscriptions(state),

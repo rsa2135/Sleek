@@ -14,9 +14,11 @@ class Api::ChannelsController < ApplicationController
   def create
     if params[:dms]
       dm_name = ""
+      @users = []
       params[:dms].each do |dm|
         puts "#{params[:dms][dm][:username]}"
         dm_name += "#{params[:dms][dm][:username]},"
+        @users.push(User.find(params[:dms][dm][:id]))
       end
       dm_name = dm_name[0..-2]
       @channel = Channel.new(name: dm_name, is_dm: true, creator:current_user)
@@ -24,12 +26,16 @@ class Api::ChannelsController < ApplicationController
       @channel = Channel.new(channel_params)
       @channel.creator = current_user
     end
-    debugger
     @subscription = Subscription.new(
       user: current_user,
       channel: @channel
     )
     if @channel.save && @subscription.save
+      if @users
+        @users.each do |user|
+          Subscription.create(user: user, channel: @channel)
+        end
+      end
       render :show
     else
       render json: @channel.errors.full_messages, status: 400

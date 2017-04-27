@@ -22,14 +22,12 @@ class DmsSelected extends React.Component {
   }
 
   startDm() {
-    debugger
     this.props.createChannel(this.props.pendingDms);
     this.props.clearList();
     this.props.fetchUsers();
   }
 
   render() {
-    debugger
     return(
       <div className="dms-selected">
         {this.props.pendingDms.map(dm =>

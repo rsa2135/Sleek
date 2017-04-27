@@ -4,7 +4,8 @@ import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router';
 
 import { deleteChannel } from '../../actions/channel_actions';
-
+import { selectAllSubscriptions } from '../../selectors/subscription_selector';
+import { fetchUserSubscriptions } from '../../actions/subscription_actions';
 
 class ChannelItem extends React.Component {
   constructor(props) {
@@ -49,9 +50,11 @@ class ChannelItem extends React.Component {
   }
 
   handleDmDelete(e) {
+    debugger
     if (e !== undefined) {
       e.preventDefault();
-      this.props.deleteChannel(this.props.channel.id);
+      this.props.deleteChannel(this.props.subscription.channel_id)
+        .then(() => this.props.fetchUserSubscriptions(this.props.currentUser.id));
     }
   }
 
@@ -59,7 +62,7 @@ class ChannelItem extends React.Component {
     let {subscription} = this.props;
     if (subscription && (subscription.is_dm === true)) {
       return (
-        <button className="remove-dm" onClick={this.handleDmDelete()}>
+        <button className="remove-dm" onClick={this.handleDmDelete}>
           <FontAwesome name='times-circle-o' />
         </button>
       );
@@ -93,12 +96,14 @@ class ChannelItem extends React.Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.session.currentUser,
+    subscriptions: selectAllSubscriptions(state),
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    deleteChannel: id => dispatch(deleteChannel(id))
+    deleteChannel: id => dispatch(deleteChannel(id)),
+    fetchUserSubscriptions: (user_id) => dispatch(fetchUserSubscriptions(user_id)),
   };
 }
 
