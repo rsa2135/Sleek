@@ -5,7 +5,6 @@ import { closeModal } from '../actions/modal_actions';
 
 
 const Modal = (props) => {
-  debugger
   let clsName;
   if (props.visible) {
     if ((props.content) && (props.content.props.name === "ChannelActionsModal")) {

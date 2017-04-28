@@ -40,7 +40,6 @@ export const fetchChannel = (id) => {
 };
 
 export const createChannel = (channel) => {
-  debugger
   return (dispatch) => {
     return ChannelApiUtil.createChannel(channel)
       .then(channel => dispatch(receiveChannel(channel)));
@@ -55,7 +54,6 @@ export const updateChannel = (channel) => {
 };
 
 export const deleteChannel = (id) => {
-  debugger
   return (dispatch) => {
     return ChannelApiUtil.deleteChannel(id)
       .then(channel => dispatch(removeChannel(channel)));

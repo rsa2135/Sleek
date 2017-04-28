@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router'
+
 import { selectAllChannels } from '../../selectors/channel_selector';
 import { selectAllUsers } from '../../selectors/user_selector';
 import { removePendingUser, clearList } from '../../actions/pending_dms_actions';
@@ -7,6 +9,7 @@ import { receiveUser, fetchUsers } from '../../actions/user_actions';
 import { createChannel } from '../../actions/channel_actions';
 import { fetchUserSubscriptions } from '../../actions/subscription_actions';
 import { closeModal } from '../../actions/modal_actions';
+import { selectAllSubscriptions } from '../../selectors/subscription_selector';
 
 class DmsSelected extends React.Component {
   constructor(props) {
@@ -24,7 +27,9 @@ class DmsSelected extends React.Component {
   }
 
   startDm() {
+    let { subscriptions } = this.props;
     this.props.createChannel(this.props.pendingDms)
+      .then((action) => hashHistory.push(`messages/${action.channel.id}`))
       .then(() => this.props.fetchUserSubscriptions(currentUser.id))
       .then(() => this.props.fetchUsers());
     this.props.clearList();
@@ -62,6 +67,7 @@ const mapStateToProps = (state) => ({
   channels: selectAllChannels(state),
   users: selectAllUsers(state),
   currentUser: state.session.currentUser,
+  subscriptions: selectAllSubscriptions(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

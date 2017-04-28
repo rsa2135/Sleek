@@ -9,7 +9,7 @@ import ChannelPurposeModal from './channel_purpose_modal';
 
 const propIsUserOrChannel = (props) => {
   if (props.channel) {
-    if (props.channel.is_dm === false) {
+    if ((!props.channel.is_dm) && (!props.channel.private)) {
       return <ChannelNameRowModal channel={props.channel}/>;
     }
   } else {
@@ -18,10 +18,9 @@ const propIsUserOrChannel = (props) => {
 };
 
 const ChannelModalItem = (props) => {
-  debugger
   let liClass;
   if (props.channel) {
-    liClass = !props.channel.is_dm ? "modal-channel-li" : "modal-channel-li-hidden";
+    liClass = (!props.channel.is_dm) && (!props.channel.private) ? "modal-channel-li" : "modal-channel-li-hidden";
   } else {
     liClass = "modal-channel-li";
   }

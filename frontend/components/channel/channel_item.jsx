@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-fontawesome';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 import { deleteChannel } from '../../actions/channel_actions';
 import { selectAllSubscriptions } from '../../selectors/subscription_selector';
@@ -36,11 +36,19 @@ class ChannelItem extends React.Component {
         </span>
       );
     } else if (subscription.is_dm === true ) {
-      return (
-        <span className="status">
-          <FontAwesome name='circle-o' />
-        </span>
-      );
+      if (subscription.users.length > 2) {
+        return (
+          <span className="status">
+            <span className='num-user'>{subscription.users.length - 1}</span>
+          </span>
+        );
+      } else {
+        return (
+          <span className="status">
+            <FontAwesome name='circle-o' />
+          </span>
+        );
+      }
     } else {
       return (
         <span className="status">
@@ -50,10 +58,13 @@ class ChannelItem extends React.Component {
     }
   }
 
+
   handleDmDelete(e) {
+    let remainingDms = this.props.subscriptions.filter((sub) => (sub.channel_id !== parseInt(this.props.currentChannel)) && (sub.is_dm));
     if (e !== undefined) {
       e.preventDefault();
       this.props.deleteChannel(this.props.subscription.channel_id)
+        .then(() => hashHistory.push(`messages/${remainingDms[0].channel_id}`))
         .then(() => this.props.fetchUserSubscriptions(this.props.currentUser.id));
     }
   }

@@ -45,8 +45,7 @@ class ChannelActionsModal extends React.Component {
   }
 
   handleDelete(e) {
-
-    let remainingChannels = this.props.subscriptions.filter((sub) => sub.channel_id !== parseInt(this.props.currentChannel));
+    let remainingChannels = this.props.subscriptions.filter((sub) => (sub.channel_id !== parseInt(this.props.currentChannel)) && (!sub.is_dm));
     this.props.deleteChannel(this.props.currentChannel)
       .then(() => hashHistory.push(`messages/${remainingChannels[0].channel_id}`))
       .then(() => this.props.fetchUserSubscriptions(this.props.currentUser.id));
@@ -76,7 +75,6 @@ class ChannelActionsModal extends React.Component {
 }
 
 const mapStateToProps = (state, ownParams) => {
-  debugger
   return {
     currentChannel: ownParams.params.channelId,
     channels: selectAllChannels(state),

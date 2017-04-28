@@ -7,16 +7,16 @@ const channelName = (props) => {
     subscription.channel_id === parseInt(props.channelId)
   ));
   let displayText;
-  if (currentChannel[0].is_dm === false) {
+  if ((currentChannel.length > 0) && (currentChannel[0].is_dm === false)) {
     displayText = `#${currentChannel[0].channel_name}`;
   } else {
     let channelName;
-    if (currentChannel[0].users.length === 2) {
+    if ((currentChannel.length > 0) && (currentChannel[0].users.length === 2)) {
       channelName = currentChannel[0].users.filter(user => (
         user !== currentUser.username
       ));
       displayText = `@${channelName}`;
-    } else {
+    } else if (currentChannel.length > 0){
       channelName = currentChannel[0].users.filter(user => (
         user !== currentUser.username
       )).join(', ');
@@ -30,7 +30,9 @@ const channelInfo = (props) => {
   let currentChannel = props.subscriptions.filter((subscription) => (
     subscription.channel_id === parseInt(props.channelId)
   ));
-  return currentChannel[0].channel_description;
+  if (currentChannel.length > 0) {
+    return currentChannel[0].channel_description;
+  }
 };
 
 const navBarMemberLogic = (props) => {

@@ -13,7 +13,6 @@ export const fetchChannel = (id) => {
 };
 
 export const createChannel = (channel) => {
-  debugger
   if (Array.isArray(channel)) {
     channel = {dms: channel};
   } else {

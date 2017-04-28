@@ -63,3 +63,71 @@ eli_peyton_dm1 = Message.create(body: "Peyton, does it hurt to know that I'm so 
 eli_peyton_dm2 = Message.create(body: "Keep dreaming kid", author: peyton, channel: eli_peyton_dm)
 eli_peyton_dm3 = Message.create(body: "Just wait until I win another superbowl", author: eli, channel: eli_peyton_dm)
 eli_peyton_dm4 = Message.create(body: "As i said, keep dreaming kid", author: peyton, channel: eli_peyton_dm)
+
+
+
+
+
+# NEW SEEDS!!!!
+#########
+# USERS #
+#########
+ron = User.create(username: 'ron', email: 'ronariav@gmail.com', password: '123456')
+peyton = User.create(username: 'peyton', email: 'peyton@gmail.com', password: 'password')
+eli = User.create(username: 'eli', email: 'eli@gmail.com', password: 'password')
+
+guest1 = User.create(username: 'guest1', email: 'guest1@example.com', password: 'password')
+guest2 = User.create(username: 'guest2', email: 'guest2@example.com', password: 'password')
+
+# Dumb and dumber
+lloyd = User.create(username: 'lloyd', email: 'lloyd@gmail.com', password: '123456')
+harry = User.create(username: 'harry', email: 'harryd@gmail.com', password: '123456')
+
+# Snatch
+turkish = User.create(username: 'turkish', email: 'turkish@gmail.com', password: '123456')
+tommy = User.create(username: 'tommy', email: 'tommy@gmail.com', password: '123456')
+micky = User.create(username: 'micky', email: 'micky@gmail.com', password: '123456')
+
+# Man Utd.
+scholes = User.create(username: 'scholes', email: 'scholes@gmail.com', password: '123456')
+giggsy = User.create(username: 'giggsy', email: 'giggsy@gmail.com', password: '123456')
+cantona =  User.create(username: 'cantona', email: 'cantona@gmail.com', password: '123456')
+beckham = User.create(username: 'beckham', email: 'beckham@gmail.com', password: '123456')
+
+# blondie
+
+
+############
+# CHANNELS #
+############
+# general
+general = Channel.create(name: 'general', description: 'Welcome to sleek!', creator: ron)
+
+#sports
+sports = Channel.create(name: 'sports', description: 'Everything sports related', creator: ron)
+
+# testing ground
+testing = Channel.create(name: 'testing ground', description: 'Shenanigans', creator: guest2)
+
+# dumb and dumber
+dumb_and_dumber = Channel.create(name: 'dumb and dumber', description: 'Comic relief', creator: guest1)
+dumb_and_dumber_private = Channel.create(name: 'Thew crew', description: 'Inside jokes', creator: lloyd, private: true)
+
+# snatch
+snatch = Channel.create(name: 'snatch', description: "D'ya like dags?", creator: guest2)
+
+
+
+# man utd.
+manutd = Channel.create(name: 'man utd', description: "Glory glory", creator: beckham)
+
+# React
+react = Channel.create(name: 'react', creator: ron)
+
+# Redux
+redux = Channel.create(name: 'redux', creator: ron)
+
+
+############
+# MESSAGES #
+############

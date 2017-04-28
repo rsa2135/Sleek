@@ -149,9 +149,30 @@
   line-height: 24px;
   opacity: 0.70;
   font-family: $lato;
-  // margin-top: -3px;
-  // margin-left: -2;
-  // margin-right: -2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.num-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  text-align: center;
+  padding-left: 1px;
+  color: $slack-purpule;
+  background-color: $channels-grey;
+  border-radius: 3px;
+  height: 11px;
+  width: 11px;
+  line-height: 12px;
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.selected-channel .num-user {
+  background-color: $white;
 }
 
 .channel-li a {
@@ -159,11 +180,6 @@
   color: $channels-grey;
   height: 24px;
   width: 100%
-}
-
-
-.channel-name {
-  // margin-top: -3px;
 }
 
 .selected-channel {
@@ -194,7 +210,7 @@ h2 {
 }
 
 .status .fa-circle-o {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   font-size: 10px;
 }
 

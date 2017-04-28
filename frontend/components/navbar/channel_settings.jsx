@@ -3,7 +3,6 @@ import FontAwesome from 'react-fontawesome';
 
 
 const ChannelSettings = (props) => {
-  debugger
   return (
     <div className="channel-settings-container">
 
