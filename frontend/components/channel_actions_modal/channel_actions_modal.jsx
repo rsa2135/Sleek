@@ -29,9 +29,11 @@ class ChannelActionsModal extends React.Component {
 
     if (channelCreator) {
       return (
-        <li className="deleteChannel" onClick={this.handleDelete}>
-          Delete Channel
-        </li>
+        <div className="action-dropdown-container" >
+          <li className="deleteChannel" onClick={this.handleDelete}>
+            Delete Channel
+          </li>
+        </div>
       );
     } else {
       return (
@@ -64,7 +66,7 @@ class ChannelActionsModal extends React.Component {
 
   render() {
     return (
-      <div className="actions-dropdown">
+      <div className="actions-dropdown" id="action-dropdown-id">
         <ul>
           {this.leaveOrDeleteLogic()}
         </ul>

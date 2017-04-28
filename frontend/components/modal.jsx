@@ -5,8 +5,19 @@ import { closeModal } from '../actions/modal_actions';
 
 
 const Modal = (props) => {
+  debugger
+  let clsName;
+  if (props.visible) {
+    if ((props.content) && (props.content.props.name === "ChannelActionsModal")) {
+      clsName = "drop-down-screen";
+    } else {
+      clsName = "modal-screen";
+    }
+  } else {
+    clsName = 'hidden';
+  }
   return (
-    <div className={props.visible ? 'modal-screen' : 'hidden'} >
+    <div className={clsName} >
       { props.content }
       <div className="close-modal" onClick={ props.closeModal }>
         <i>X</i>

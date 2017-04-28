@@ -25,7 +25,7 @@ class CreateChannelMain extends React.Component {
   header() {
     let title = this.state.private === false ? "Create a channel" : "Create a private Channel";
     return (
-      <div className="create-channel-header-container">
+      <div className="create-channel-header-container" >
         <h1 className="create-channel-header">
           {title}
         </h1>

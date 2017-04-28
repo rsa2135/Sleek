@@ -1,11 +1,23 @@
-.modal-screen {
-  display: flex;
-  justify-content: center;
-  z-index: 99;
+.gear-dropdown-icon {
+  position: relative;
+}
+
+.drop-down-screen {
+  // display: flex;
+  // justify-content: center;
+  z-index: 200;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0);
+  top: 50px;
+  right: 365px;
+  width: 10%;
+  height: 8%;
+  border: 1px solid $border-light-grey;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+}
+
+.deleteChannel {
+  text-align: center;
+  padding: 6px;
+  cursor: pointer;
 }

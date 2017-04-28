@@ -54,17 +54,14 @@ const navBarMemberLogic = (props) => {
 };
 
 const handleClick = (props) => {
-  debugger
   return (e) => {
-    debugger
     e.preventDefault();
-    props.openModal(<ChannelActionsModal />);
+    props.openModal(<ChannelActionsModal name={"ChannelActionsModal"}/>);
   };
 };
 
 
 const ChannelInfoWrapper = (props) => {
-  debugger
   return (
     <div className="channel-info-section-navbar">
       <div className="channel-info-and-name">
