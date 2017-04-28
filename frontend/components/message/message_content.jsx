@@ -57,7 +57,6 @@ class MessageContent extends React.Component {
   }
 
   messageActions(e) {
-    debugger
     if ((this.props.currentUser) && (this.props.currentUser.id === parseInt(this.props.author_id))) {
       return (
         <div className="message-actions">
