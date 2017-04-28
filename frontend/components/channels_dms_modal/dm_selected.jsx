@@ -34,15 +34,17 @@ class DmsSelected extends React.Component {
 
   render() {
     return(
-      <div className="dms-selected">
+      <div className="dms-selected-container">
+        <div className="pseudo-input">
         {this.props.pendingDms.map(dm =>
-          <div key={dm.id}>
-            <span>{dm.username}</span>
-            <span>{dm.image_url}</span>
-            <i onClick={this.deselectUser(dm)}>x</i>
-          </div>)
+          <span className="pending-user-container" onClick={this.deselectUser(dm)} key={dm.id}>
+            <span className="pending-user">{dm.username}</span>
+            <span className="pending-user-picture">{dm.image_url}</span>
+            <i >x</i>
+          </span>)
         }
-        <div onClick={this.startDm}>Go</div>
+        </div>
+        <div onClick={this.startDm} className="create-dm">Go</div>
       </div>
     );
   }

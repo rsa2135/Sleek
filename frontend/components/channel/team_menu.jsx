@@ -19,7 +19,7 @@ class TeamMenu extends React.Component {
     return (
       <div className="team_menu">
         <div className="title-signout">
-          <span className="sleek-title">Sleek</span>
+          <span className="sleek-title">Sleek Messaging</span>
 
           <button onClick={this.logoutAndRedirect} className="signout">
             <FontAwesome name='sign-out' />

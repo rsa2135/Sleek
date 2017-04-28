@@ -14,7 +14,6 @@ class ChannelItem extends React.Component {
   }
 
   renderChannel() {
-    // debugger
     let {subscription} = this.props;
     if (subscription.is_dm === true) {
       let channel = subscription.users.filter(user => user !== currentUser.username).join(', ');
@@ -52,7 +51,6 @@ class ChannelItem extends React.Component {
   }
 
   handleDmDelete(e) {
-    debugger
     if (e !== undefined) {
       e.preventDefault();
       this.props.deleteChannel(this.props.subscription.channel_id)

@@ -32,6 +32,26 @@ const channelInfo = (props) => {
   return currentChannel[0].channel_description;
 };
 
+const navBarMemberLogic = (props) => {
+  let currentChannel = props.subscriptions.filter((subscription) => (
+    subscription.channel_id === parseInt(props.channelId)
+  ));
+  let cssSelector;
+  if ((currentChannel[0] !== undefined) && (currentChannel[0].channel_description === null)) {
+    cssSelector = "count-no-border";
+  } else {
+    cssSelector = "count";
+  }
+
+  return (
+    <div className="navbar-member-count">
+      <span className="user-logo"><FontAwesome name='user-o' /></span>
+      <span className={cssSelector}>{props.subscriptions.length}</span>
+    </div>
+  );
+
+};
+
 
 const ChannelInfoWrapper = (props) => {
 
@@ -44,10 +64,7 @@ const ChannelInfoWrapper = (props) => {
 
         <div className="channel_header_info">
 
-          <div className="navbar-member-count">
-            <span className="user-logo"><FontAwesome name='user-o' /></span>
-            <span className="count">{props.subscriptions.length}</span>
-          </div>
+        {navBarMemberLogic(props)}
 
           <div className="navbar-channel-description-container">
             <span className="navbar-channel-description">{props.subscriptions.length > 0 ? channelInfo(props) : null }</span>

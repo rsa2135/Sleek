@@ -109,12 +109,24 @@
   font-weight: 600;
 }
 
+.channel-header-text:hover {
+  color: $white;
+}
+
+.channel-header-text:hover > span {
+  color: $white;
+}
+
 .channel_count {
   opacity: 0.5;
   margin-left: 3px;
   color: $channels-grey;
   display: flex;
   vertical-align: middle;
+}
+
+.channel_count:hover {
+  color: $white;
 }
 
 .channel-li {
@@ -164,6 +176,10 @@
   color: $white;
 }
 
+.selected-channel .dm-name{
+  color: $white;
+}
+
 .selected-channel .status{
   color: $white;
 }
@@ -185,6 +201,11 @@ h2 {
 .fa-plus-circle {
   margin-right: 10px;
   font-size: 16px;
+  opacity: 0.3;
+}
+
+.fa-plus-circle:hover {
+  opacity: 1;
 }
 
 .link-to-channel:hover{
