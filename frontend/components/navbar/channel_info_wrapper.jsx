@@ -11,7 +11,6 @@ const channelName = (props) => {
     displayText = `#${currentChannel[0].channel_name}`;
   } else {
     let channelName;
-    debugger
     if ((currentChannel.length > 0) && (currentChannel[0].users.length === 2) && (props.currentUser)) {
       channelName = currentChannel[0].users.filter(user => (
         user !== props.currentUser.username
@@ -48,7 +47,6 @@ const navBarMemberLogic = (props) => {
     cssSelector = "count";
   }
 
-  debugger
   let counter;
   if (currentChannel.length > 0) {
     counter = currentChannel[0].users.length;

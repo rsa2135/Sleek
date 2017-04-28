@@ -10,7 +10,6 @@ class TeamMenu extends React.Component {
   }
 
   logoutAndRedirect(e) {
-    debugger
     e.preventDefault();
     this.props.logout()
       .then(() => hashHistory.push('/login'));
