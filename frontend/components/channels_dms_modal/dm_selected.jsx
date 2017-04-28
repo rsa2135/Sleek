@@ -33,8 +33,15 @@ class DmsSelected extends React.Component {
   }
 
   render() {
+    let dmsClassname;
+    if (this.props.channelSection === 'channel') {
+      dmsClassname = "dms-selected-container-hidden";
+    } else {
+      dmsClassname = "dms-selected-container";
+    }
+
     return(
-      <div className="dms-selected-container">
+      <div className={dmsClassname}>
         <div className="pseudo-input">
         {this.props.pendingDms.map(dm =>
           <span className="pending-user-container" onClick={this.deselectUser(dm)} key={dm.id}>

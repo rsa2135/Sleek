@@ -27,14 +27,19 @@ class MessageContent extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    this.props.deleteMessage(this.state.message.id);
+    if (currentUser.id === parseInt(this.props.author_id)) {
+      this.props.deleteMessage(this.state.message.id);
+    } else {
+    }
   }
 
   handleUpdate(e) {
     e.preventDefault();
-    let addInfo = this.state.additionalInfo;
-    addInfo.renderClass = true;
-    this.setState({additionalInfo: addInfo});
+    if (currentUser.id === parseInt(this.props.author_id)) {
+      let addInfo = this.state.additionalInfo;
+      addInfo.renderClass = true;
+      this.setState({additionalInfo: addInfo});
+    }
   }
 
   handleSubmit(e) {
@@ -49,6 +54,23 @@ class MessageContent extends React.Component {
     let updateBody = this.state.message;
     updateBody.body = e.target.value;
     this.setState({ message: updateBody });
+  }
+
+  messageActions(e) {
+    if (currentUser.id === parseInt(this.props.author_id)) {
+      return (
+        <div className="message-actions">
+          <button onClick={this.handleUpdate}>
+            <FontAwesome name='pencil-square-o' />
+          </button>
+          <button onClick={this.handleDelete}>
+            <FontAwesome name='trash-o' />
+          </button>
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 
   renderForm() {
@@ -84,18 +106,12 @@ class MessageContent extends React.Component {
 
         {this.renderForm()}
 
-        <div className="message_actions">
-          <button><FontAwesome name='smile-o' /></button>
-          <button onClick={this.handleUpdate}>
-            <FontAwesome name='pencil-square-o' />
-          </button>
-          <button onClick={this.handleDelete}>
-            <FontAwesome name='trash-o' />
-          </button>
-        </div>
+        {this.messageActions()}
       </div>
     );
   }
 }
 
 export default MessageContent;
+
+// <button><FontAwesome name='smile-o' /></button>

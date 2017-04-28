@@ -5,7 +5,7 @@ const MemberCountModal = (props) => {
   return (
     <div className="member-count">
       <FontAwesome name='user-o' />
-      <span className="count">{props.channel.count}</span>
+      <span className="count-modal">{props.channel.count}</span>
     </div>
   );
 };

@@ -92,6 +92,11 @@
   position: relative;
 }
 
+.message_body:hover {
+  display: flex;
+  position: relative;
+}
+
 .avatar_container {
   width: 62px;
   height: 41px;
@@ -135,7 +140,39 @@
   border: 2px solid $search-border-focus;
 }
 
-.message_actions {
+// .message-actions {
+//   position: absolute;
+//   top: -4px;
+//   right: 10px;
+//   border: 1px solid $hoverbox_grey;
+//   border-radius: 6px;
+//   height: 27px;
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.message-actions {
+  display: none;
+}
+
+.message-actions button {
+  padding: 6px 0 4px 0;
+  border-right: 1px solid $hoverbox_grey;
+  color: $action_buttons;
+  width: 34px;
+}
+
+.message-actions button span {
+  display: block;
+  color: $blackish;
+  font-size: 15px;
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.message_body:hover div.message-actions {
   position: absolute;
   top: -4px;
   right: 10px;
@@ -144,21 +181,5 @@
   height: 27px;
   display: flex;
   justify-content: space-between;
-}
-
-.message_actions button {
-  padding: 6px 0 4px 0;
-  border-right: 1px solid $hoverbox_grey;
-  color: $action_buttons;
-  width: 34px;
-}
-
-.message_actions button span {
-  display: block;
-  color: $blackish;
-  font-size: 15px;
-  width: 100%;
-  margin: 0px;
-  text-align: center;
-  vertical-align: center;
+  background-color: $white;
 }

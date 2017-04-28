@@ -73,6 +73,7 @@ class ChannelModalList extends React.Component {
                 key={channel.id}
                 closeModal={this.props.closeModal}
                 onChannelClick={this.onChannelClick(channel)}
+                channelSection={this.props.channelSection}
                 />)}
           </ul>
         </div>

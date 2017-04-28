@@ -3,7 +3,8 @@ import React from 'react';
 const headerText = (props) => {
   let text;
   if (props.channelSection === "channel") {
-    text = `Browse all ${props.channels.length} channels`;
+    let counter = props.channels.filter(channel => (!channel.is_dm));
+    text = `Browse all ${counter.length} channels`;
   } else {
     text = 'Direct Messages';
   }

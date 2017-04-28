@@ -19,7 +19,7 @@ const ChannelsModal = (props) => {
         channelSection={props.channelSection}
         />
 
-      <DmsSelected />
+      <DmsSelected channelSection={props.channelSection} />
 
       <ChannelModalList
         channels={props.channels}

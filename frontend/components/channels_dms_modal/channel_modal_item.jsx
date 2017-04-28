@@ -9,15 +9,24 @@ import ChannelPurposeModal from './channel_purpose_modal';
 
 const propIsUserOrChannel = (props) => {
   if (props.channel) {
-    return <ChannelNameRowModal channel={props.channel}/>;
+    if (props.channel.is_dm === false) {
+      return <ChannelNameRowModal channel={props.channel}/>;
+    }
   } else {
     return <ChannelNameRowModal user={props.user} />;
   }
 };
 
 const ChannelModalItem = (props) => {
+  debugger
+  let liClass;
+  if (props.channel) {
+    liClass = !props.channel.is_dm ? "modal-channel-li" : "modal-channel-li-hidden";
+  } else {
+    liClass = "modal-channel-li";
+  }
   return(
-    <li className="modal-channel-li"
+    <li className={liClass}
       onClick={ props.channel ? props.onChannelClick : props.selectUser }>
       {propIsUserOrChannel(props)}
 

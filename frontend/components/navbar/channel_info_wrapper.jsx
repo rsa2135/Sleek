@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import ChannelActionsModal from '../channel_actions_modal/channel_actions_modal';
 
 const channelName = (props) => {
   let currentChannel = props.subscriptions.filter((subscription) => (
@@ -52,9 +53,18 @@ const navBarMemberLogic = (props) => {
 
 };
 
+const handleClick = (props) => {
+  debugger
+  return (e) => {
+    debugger
+    e.preventDefault();
+    props.openModal(<ChannelActionsModal />);
+  };
+};
+
 
 const ChannelInfoWrapper = (props) => {
-
+  debugger
   return (
     <div className="channel-info-section-navbar">
       <div className="channel-info-and-name">
@@ -75,7 +85,7 @@ const ChannelInfoWrapper = (props) => {
 
       <div className="channel-settings-container">
 
-        <button className="gear-dropdown-icon">
+        <button className="gear-dropdown-icon" onClick={handleClick(props)}>
           <FontAwesome name='cog' />
         </button>
 

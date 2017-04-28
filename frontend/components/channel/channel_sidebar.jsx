@@ -14,6 +14,11 @@ class ChannelSidebar extends React.Component {
     this.props.fetchUsers();
   }
 
+  channelCount() {
+    let counter = this.props.channels.filter(channel => (!channel.is_dm));
+    return counter.length;
+  }
+
   render() {
     return(
       <div className="channels_sidebar">
@@ -26,7 +31,7 @@ class ChannelSidebar extends React.Component {
           <ChannelsWrapper
             channelSection={'channel'}
             subscriptions={this.props.subscriptions}
-            channelCount={this.props.channels.length}
+            channelCount={this.channelCount()}
             />
 
           <ChannelsWrapper

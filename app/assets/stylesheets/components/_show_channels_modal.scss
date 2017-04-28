@@ -90,6 +90,10 @@
   justify-content: space-between;
 }
 
+.dms-selected-container-hidden {
+  display: none;
+}
+
 .create-dm {
   font-size: 20px;
   color: $white;
@@ -196,6 +200,10 @@
   // border-top: 1px solid transparent;
 }
 
+.modal-channel-li-hidden {
+  display: none;
+}
+
 .status-modal {
   width: 14px;
   height: 19px;
@@ -219,6 +227,7 @@
 
 .creator-id {
   color: $blackish;
+  display: inline;
 }
 
 .member-count {
