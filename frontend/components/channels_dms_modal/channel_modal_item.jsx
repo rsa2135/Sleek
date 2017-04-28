@@ -13,7 +13,9 @@ const propIsUserOrChannel = (props) => {
       return <ChannelNameRowModal channel={props.channel}/>;
     }
   } else {
-    return <ChannelNameRowModal user={props.user} />;
+    if (props.user.id !== props.currentUser.id) {
+      return <ChannelNameRowModal user={props.user} />;
+    }
   }
 };
 
@@ -21,8 +23,8 @@ const ChannelModalItem = (props) => {
   let liClass;
   if (props.channel) {
     liClass = (!props.channel.is_dm) && (!props.channel.private) ? "modal-channel-li" : "modal-channel-li-hidden";
-  } else {
-    liClass = "modal-channel-li";
+  } else if (props.user) {
+    liClass = (props.user.id !== props.currentUser.id) ? "modal-channel-li" : "modal-channel-li-hidden";
   }
   return(
     <li className={liClass}

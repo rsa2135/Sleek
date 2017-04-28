@@ -30,11 +30,10 @@ class DmsSelected extends React.Component {
     let { subscriptions } = this.props;
     this.props.createChannel(this.props.pendingDms)
       .then((action) => hashHistory.push(`messages/${action.channel.id}`))
-      .then(() => this.props.fetchUserSubscriptions(currentUser.id))
+      .then(() => this.props.fetchUserSubscriptions(this.props.currentUser.id))
       .then(() => this.props.fetchUsers());
     this.props.clearList();
     this.props.closeModal();
-
   }
 
   render() {

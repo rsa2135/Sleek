@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     messages: selectAllMessages(state),
     channels: selectAllChannels(state),
+    currentUser: state.session.currentUser
   };
 };
 

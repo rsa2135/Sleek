@@ -21,7 +21,7 @@ class ChannelActionsModal extends React.Component {
     let channelCreator = false;
     this.props.channels.forEach(channel => {
       if (channel.id === parseInt(this.props.currentChannel)) {
-        if (channel.creator === currentUser.username) {
+        if (channel.creator === this.props.currentUser.username) {
           channelCreator = true;
         }
       }

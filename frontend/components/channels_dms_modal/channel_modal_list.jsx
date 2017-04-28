@@ -89,6 +89,7 @@ class ChannelModalList extends React.Component {
                 key={user.id}
                 closeModal={this.props.closeModal}
                 selectUser={this.selectUser(user)}
+                currentUser={this.props.currentUser}
                 />)}
           </ul>
         </div>
@@ -111,6 +112,7 @@ const mapStateToProps = (state) => ({
   channels: selectAllChannels(state),
   subscriptions: selectAllSubscriptions(state),
   users: selectAllUsers(state),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

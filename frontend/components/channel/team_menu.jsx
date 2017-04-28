@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
-import { withRouter } from 'react-router';
+import { withRouter, hashHistory } from 'react-router';
 
 class TeamMenu extends React.Component {
   constructor(props) {
@@ -10,9 +10,10 @@ class TeamMenu extends React.Component {
   }
 
   logoutAndRedirect(e) {
+    debugger
     e.preventDefault();
     this.props.logout()
-      .then(() => this.props.router.push('/login'));
+      .then(() => hashHistory.push('/login'));
   }
 
   renderMenu() {

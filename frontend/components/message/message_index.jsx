@@ -17,24 +17,29 @@ class MessageIndex extends React.Component {
       this.props.fetchMessages(this.props.params.channelId);
     });
 
-    let scroll = Scroll.animateScroll;
-    scroll.scrollTo(10000, {delay: 0});
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.params.channelId !== newProps.params.channelId) {
       this.props.fetchMessages(newProps.params.channelId);
     }
-    let scroll = Scroll.animateScroll;
-    scroll.scrollTo(10000, {delay: 0});
+  }
+
+  componentDidUpdate() {
+    this.autoScroll();
   }
 
   componentWillUnmount() {
     this.pusher.unsubscribe();
   }
 
+  autoScroll () {
+    const node = ReactDOM.findDOMNode(this.scrollTarget);
+    node.scrollIntoView({behavior: "smooth"});
+  }
+
   render() {
-    const { messages, updateMessage, deleteMessage, channelId } = this.props;
+    const { messages, updateMessage, deleteMessage, channelId, currentUser } = this.props;
     return (
       <section className="chat_active_window">
         <NavbarMain />
@@ -43,9 +48,11 @@ class MessageIndex extends React.Component {
                                         message={message}
                                         updateMessage={updateMessage}
                                         deleteMessage={deleteMessage}
-                                        key={message.id} />)}
+                                        key={message.id}
+                                        currentUser={currentUser} />)}
         </ul>
         <MessageFormContainer />
+        <div ref={(bottom) => { this.scrollTarget = bottom; }}></div>
       </section>
     );
   }

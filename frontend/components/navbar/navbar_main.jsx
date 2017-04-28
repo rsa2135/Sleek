@@ -29,7 +29,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     channelId: ownProps.params.channelId,
     channels: selectAllChannels(state),
-    subscriptions: selectAllSubscriptions(state)
+    subscriptions: selectAllSubscriptions(state),
+    currentUser: state.session.currentUser
   };
 };
 

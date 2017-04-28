@@ -27,7 +27,7 @@ class MessageContent extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    if (currentUser.id === parseInt(this.props.author_id)) {
+    if (this.props.currentUser.id === parseInt(this.props.author_id)) {
       this.props.deleteMessage(this.state.message.id);
     } else {
     }
@@ -35,7 +35,7 @@ class MessageContent extends React.Component {
 
   handleUpdate(e) {
     e.preventDefault();
-    if (currentUser.id === parseInt(this.props.author_id)) {
+    if (this.props.currentUser.id === parseInt(this.props.author_id)) {
       let addInfo = this.state.additionalInfo;
       addInfo.renderClass = true;
       this.setState({additionalInfo: addInfo});
@@ -57,7 +57,7 @@ class MessageContent extends React.Component {
   }
 
   messageActions(e) {
-    if (currentUser.id === parseInt(this.props.author_id)) {
+    if ((this.props.currentUser) && (this.props.currentUser.id === parseInt(this.props.author_id))) {
       return (
         <div className="message-actions">
           <button onClick={this.handleUpdate}>

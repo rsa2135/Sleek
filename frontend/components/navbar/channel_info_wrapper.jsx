@@ -11,14 +11,16 @@ const channelName = (props) => {
     displayText = `#${currentChannel[0].channel_name}`;
   } else {
     let channelName;
-    if ((currentChannel.length > 0) && (currentChannel[0].users.length === 2)) {
+    debugger
+    if ((currentChannel.length > 0) && (currentChannel[0].users.length === 2) && (props.currentUser)) {
       channelName = currentChannel[0].users.filter(user => (
-        user !== currentUser.username
+        user !== props.currentUser.username
       ));
       displayText = `@${channelName}`;
-    } else if (currentChannel.length > 0){
+    } else if ((currentChannel.length > 0) && (props.currentUser)) {
+
       channelName = currentChannel[0].users.filter(user => (
-        user !== currentUser.username
+        user !== props.currentUser.username
       )).join(', ');
       displayText = channelName;
     }
@@ -46,10 +48,15 @@ const navBarMemberLogic = (props) => {
     cssSelector = "count";
   }
 
+  debugger
+  let counter;
+  if (currentChannel.length > 0) {
+    counter = currentChannel[0].users.length;
+  }
   return (
     <div className="navbar-member-count">
       <span className="user-logo"><FontAwesome name='user-o' /></span>
-      <span className={cssSelector}>{props.subscriptions.length}</span>
+      <span className={cssSelector}>{counter}</span>
     </div>
   );
 

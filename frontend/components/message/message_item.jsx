@@ -6,7 +6,7 @@ import MessageAvatar from './message_avatar';
 class MessageItem extends React.Component {
 
   render() {
-    const { id, author, author_id, created_at, body, image_url} = this.props.message;
+    const { id, author, author_id, created_at, body, image_url, currentUser} = this.props.message;
     const { deleteMessage, updateMessage } = this.props;
     return (
       <li className="message_body">
@@ -18,7 +18,8 @@ class MessageItem extends React.Component {
           body={body}
           timestamp={created_at}
           deleteMessage={deleteMessage}
-          updateMessage={updateMessage} />
+          updateMessage={updateMessage}
+          currentUser={currentUser} />
       </li>
     );
   }

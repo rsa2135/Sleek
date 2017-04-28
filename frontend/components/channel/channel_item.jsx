@@ -16,7 +16,7 @@ class ChannelItem extends React.Component {
   renderChannel() {
     let {subscription} = this.props;
     if (subscription.is_dm === true) {
-      let channel = subscription.users.filter(user => user !== currentUser.username).join(', ');
+      let channel = subscription.users.filter(user => ((this.props.currentUser) && (user !== this.props.currentUser.username))).join(', ');
       return (
         <span className="dm-name">{channel}</span>
       );
@@ -27,7 +27,7 @@ class ChannelItem extends React.Component {
     }
   }
 
-  renderStatus(props) {
+  renderStatus() {
     let {subscription} = this.props;
     if (subscription.private === true) {
       return(
