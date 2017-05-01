@@ -37,7 +37,7 @@ Messages for each channel are pulled when a user moves channels. and are stored 
 
 in the frontend, each message is represented by a `MessageItem` component which has two subcomponents: `MessageAvatar` and `MessageContent`
 
-![image of chat component](docs/wireframes/chat.png)
+![image of chat component](docs/wireframes/Chat.png)
 
 using component state, user has the ability to edit his messages in the window.
 
