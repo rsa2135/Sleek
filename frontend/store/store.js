@@ -8,8 +8,20 @@ const configureStore = (preloadedState = {}) => (
   createStore(
     RootReducer,
     preloadedState,
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
   )
 );
 
 export default configureStore;
+
+
+
+
+// //Including Logger
+// const configureStore = (preloadedState = {}) => (
+//   createStore(
+//     RootReducer,
+//     preloadedState,
+//     applyMiddleware(thunk, logger)
+//   )
+// );
