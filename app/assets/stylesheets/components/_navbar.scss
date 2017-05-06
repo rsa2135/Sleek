@@ -5,6 +5,9 @@
 .nav-bar {
   background-color: $white;
   border-bottom: 1px solid $border-mid-grey;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .channel_name_container {

@@ -5,9 +5,9 @@
 
 
 .channels_sidebar {
-  // position: fixed;
+  position: fixed;
   box-sizing: border-box;
-  // display: block;
+  height: 100vh;
   padding: 9px 0 0 0;
   background-color: $slack-purpule;
   color: $channels-grey;
@@ -244,7 +244,7 @@ h2 {
 }
 
 .fa-times-circle-o {
-  // z-index: -100;
+  z-index: -100;
   position: absolute;
   right: 0;
   top: 0;
@@ -253,17 +253,18 @@ h2 {
   font-size: 16px;
 }
 
-.remove-dm:hover{
-  z-index: 1;
-}
-
 .remove-dm {
-  z-index: -1;
+  display: none;
 }
 
-// .fa-times-circle-o {
-//   display: none;
-// }
+.remove-dm:hover {
+  display: block;
+}
+
+.remove-dm:hover > span {
+  display: block;
+  background-color: $slack-purpule;
+}
 
 .selected-channel + button {
   color: $white;
@@ -276,14 +277,17 @@ h2 {
   margin-top: 3.5px;
   // margin-right: 5px;
   font-size: 16px;
+
 }
 
 .link-to-channel:hover + button {
+  display: block;
   z-index: 1;
-  background-color: $channels-grey;
-  right: 0;
-  top: 0;
-  margin-top: 3.5px;
-  // margin-right: 5px;
-  font-size: 16px;
+
+  // background-color: $channels-grey;
+  // right: 0;
+  // top: 0;
+  // margin-top: 3.5px;
+  // // margin-right: 5px;
+  // font-size: 16px;
 }
