@@ -255,15 +255,12 @@ h2 {
 
 .remove-dm {
   display: none;
+  z-index: -100;
 }
 
 .remove-dm:hover {
   display: block;
-}
-
-.remove-dm:hover > span {
-  display: block;
-  background-color: $slack-purpule;
+  z-index: 1;
 }
 
 .selected-channel + button {
@@ -274,20 +271,12 @@ h2 {
   z-index: 1;
   right: 0;
   top: 0;
-  margin-top: 3.5px;
-  // margin-right: 5px;
   font-size: 16px;
-
 }
 
 .link-to-channel:hover + button {
-  display: block;
   z-index: 1;
-
-  // background-color: $channels-grey;
-  // right: 0;
-  // top: 0;
-  // margin-top: 3.5px;
-  // // margin-right: 5px;
-  // font-size: 16px;
+  display: block;
+  right: 0;
+  top: 0;
 }
