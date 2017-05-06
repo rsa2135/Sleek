@@ -1,7 +1,6 @@
 # Sleek
 
 [Sleek live][link-to-sleek]
-
 [link-to-sleek]: http://www.sleek-messaging.com
 
 ## Minimum Viable Product

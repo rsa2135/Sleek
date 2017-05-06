@@ -1,7 +1,7 @@
 # __Sleek__
 
-[Sleek live][heroku]
-[heroku]: https://sleek-messaging.herokuapp.com/
+[Sleek live][link-to-sleek]
+[link-to-sleek]: http://www.sleek-messaging.com
 
 Sleek is a fullstack clone of Slack's web application.
 It uses the following technologies:
