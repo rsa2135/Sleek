@@ -19,7 +19,7 @@ Subscriptions are represented by a subscription table which is the associated jo
 
 on the frontend, upon login, all of the User's subscriptions are pulled from the subscriptions API endpoint. The channels sidebar, represented by the ChannelSide component, contains a single subcomponent to render both channels and DM's, distinguishing based on their `is_dm` value.
 
-![image of channels' sidebar](docs/wireframes/Channels-sidebar.png)
+![image of channels' sidebar](docs/screenshots/channels-sidebar_screenshot.png)
 
 #### Adding Channels
 Adhering to Slack's UI, channel's and direct messages CRUD is done through modals.
@@ -28,7 +28,7 @@ Upon clicking on the channels or direct messages header, all available channels 
 
 Fullscreen modals are stored in the state with a default state of `visible: false`. When activated, an action is called where the payload is a react component itself: `props.openModal(<Component />)`
 
-![image of channels' component](docs/wireframes/All-direct-messages.png)
+![image of channels' component](docs/screenshots/channels_screencast.gif)
 
 ### Messages
 Messages are stored in a messages table, and are linked to channel by a `channel_id` foreign key.
@@ -36,7 +36,7 @@ Messages for each channel are pulled when a user moves channels. and are stored 
 
 in the frontend, each message is represented by a `MessageItem` component which has two subcomponents: `MessageAvatar` and `MessageContent`
 
-![image of chat component](docs/wireframes/Chat.png)
+![image of chat component](docs/screenshots/message_crud.gif)
 
 using component state, user has the ability to edit his messages in the window.
 
