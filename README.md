@@ -1,4 +1,4 @@
-# __Sleek__
+# **Sleek**
 
 [Sleek live][link-to-sleek]
 [link-to-sleek]: http://www.sleek-messaging.com
