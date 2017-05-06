@@ -19,7 +19,7 @@ Subscriptions are represented by a subscription table which is the associated jo
 
 on the frontend, upon login, all of the User's subscriptions are pulled from the subscriptions API endpoint. The channels sidebar, represented by the ChannelSide component, contains a single subcomponent to render both channels and DM's, distinguishing based on their `is_dm` value.
 
-![image of channels' sidebar](docs/screenshots/channels-sidebar_screenshot.png)
+![image of channels' sidebar](docs/screenshots/channels_sidebar_screenshot.png)
 
 #### Adding Channels
 Adhering to Slack's UI, channel's and direct messages CRUD is done through modals.
