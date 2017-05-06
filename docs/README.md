@@ -1,7 +1,7 @@
 # Sleek
 
-[Heroku link][heroku]
-[heroku]: http://www.herokuapp.com
+[Sleek live][link]
+[link]: http://www.sleek-messaging.com
 
 ## Minimum Viable Product
 
